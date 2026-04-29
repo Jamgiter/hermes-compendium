@@ -1,87 +1,100 @@
 # Autonomous AI Agents 🚀
 
-Skills zum Spawnen und Orchestrieren autonomer KI-Coding-Agenten. Hiermit delegierst du Coding-Aufgaben an spezialisierte CLI-Tools wie Claude Code, Codex oder OpenCode – und holst dir das Ergebnis zurück, ohne den Kontext zu wechseln.
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin: 1.5rem 0;">
+
+<div style="flex: 1; min-width: 160px; padding: 1rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft); text-align: center;">
+<div style="font-size: 2rem; margin-bottom: 4px;">🧑‍💻</div>
+<strong>claude-code</strong><br>
+<small style="color: var(--vp-c-text-2);">Anthropic Coding Agent</small>
+</div>
+
+<div style="flex: 1; min-width: 160px; padding: 1rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft); text-align: center;">
+<div style="font-size: 2rem; margin-bottom: 4px;">🤖</div>
+<strong>codex</strong><br>
+<small style="color: var(--vp-c-text-2);">OpenAI Codex CLI</small>
+</div>
+
+<div style="flex: 1; min-width: 160px; padding: 1rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft); text-align: center;">
+<div style="font-size: 2rem; margin-bottom: 4px;">🧠</div>
+<strong>hermes-agent</strong><br>
+<small style="color: var(--vp-c-text-2);">Hermes selbst</small>
+</div>
+
+<div style="flex: 1; min-width: 160px; padding: 1rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft); text-align: center;">
+<div style="font-size: 2rem; margin-bottom: 4px;">🔓</div>
+<strong>opencode</strong><br>
+<small style="color: var(--vp-c-text-2);">Open Source Altern.</small>
+</div>
+
+</div>
+
+Skills zum Spawnen und Orchestrieren autonomer KI-Coding-Agenten. Delegiere Coding-Aufgaben an spezialisierte CLI-Tools und hol dir das Ergebnis – ohne den Kontext zu verlassen.
 
 ---
 
-## Überblick
+## 📋 Auf einen Blick
 
-| Skill | CLI | Beschreibung | 
-|-------|:---:|-------------|
-| **claude-code** | `claude` | Anthropics offizieller Coding-Agent. Features, PRs, Refactoring |
-| **codex** | `codex` | OpenAI Codex CLI – Coding direkt im Terminal |
-| **hermes-agent** | `hermes` | Hermes selbst konfigurieren, erweitern, beitragen |
-| **opencode** | `opencode` | Open-Source-Alternative mit Fokus auf Code-Review |
+| Skill | CLI | Stärke | IDE nötig? | Kosten |
+|-------|:---:|:------:|:----------:|:------:|
+| **claude-code** | `claude` | PRs + Tests + Refactoring | ❌ | Anthropic API |
+| **codex** | `codex` | Schnelle Skripte | ❌ | OpenAI API |
+| **hermes-agent** | `hermes` | Hermes-Konfiguration | ❌ | Modellabhängig |
+| **opencode** | `opencode` | Code-Review + Open Source | ❌ | Nur API-Kosten |
 
 ---
 
 ## 🧑‍💻 claude-code
 
-**Auslöser:** „Schreib eine Funktion für X", „Mach ein PR für Feature Y", „Refaktor das hier"
+> **Auslöser:** „Schreib eine Funktion für X", „Mach ein PR für Feature Y", „Refaktor das hier"
 
-Claude Code ist Anthropics eigenständiger Coding-Agent. Anders als Hermes ist er spezialisiert auf Softwareentwicklung: Er kann Code lesen, verstehen, editieren, testen und ganze PRs erstellen.
+Claude Code ist Anthropics Coding-Agent – spezialisiert auf Softwareentwicklung mit starker Git-Integration.
 
 ### ⚡ Schnellstart
 
 ```bash
-# Claude Code installieren
 npm install -g @anthropic-ai/claude-code
-
-# Im Projekt-Verzeichnis starten
 cd ~/mein-projekt
-claude
-
-# Oder einmaligen Task geben
 claude -p "Füge einen Health-Check-Endpoint in Flask hinzu"
 ```
 
-### 🔑 Wichtige Features
+### 🔑 Features
 
-| Feature | Beschreibung |
-|---------|-------------|
+| Feature | Nutzen |
+|---------|--------|
 | **Autonomes Editieren** | Liest + schreibt Dateien selbstständig |
 | **Git-Integration** | Erstellt Branches, Commits, PRs |
 | **Test-Loop** | Führt Tests aus und iteriert bei Fehlschlag |
 | **Sub-Agenten** | Kann eigene Unter-Agenten spawnen |
-| **Lange Kontexte** | Bis zu 200K Token Kontextfenster |
+| **Langer Kontext** | Bis zu 200K Token |
 
 ### 🤝 Hermes-Integration
 
-Hermes lädt den `claude-code`-Skill und delegiert dann via Sub-Agent:
+Der `claude-code`-Skill delegiert via Sub-Agent:
 
 ```
-# In Hermes-Session:
-"Wir brauchen eine REST-API für unser Projekt – nutz Claude Code dafür"
-→ Hermes spawnt Claude Code als Sub-Agent
+User: "Wir brauchen eine REST-API – nutz Claude Code dafür"
+→ Hermes lädt den Skill und spawned Claude Code
 → Claude Code arbeitet autonom
 → Ergebnis kommt zurück
 ```
 
-### ⚠️ Fallstricke
-
-1. **Installation nötig** – Claude Code muss auf dem System installiert sein
-2. **Anthropic-API-Kosten** – Jeder Aufruf kostet Tokens
-3. **Projekt-Kontext fehlt oft** – Dem Sub-Agent genug Kontext mitgeben
-4. **Nicht interaktiv** – In Sub-Agent-Modus ohne User-Input
+> ⚠️ **Fallstricke:**
+> 1. Claude Code muss installiert sein (`which claude`)
+> 2. Jeder Aufruf kostet Anthropic-Tokens
+> 3. Sub-Agent braucht kompletten Kontext (kein Chat-Verlauf)
 
 ---
 
 ## 🤖 codex
 
-**Auslöser:** „Lass Codex das machen", „OpenAI Codex CLI"
+> **Auslöser:** „Lass Codex das machen", „OpenAI Codex CLI"
 
-OpenAI Codex CLI ist der Coding-Agent von OpenAI – ähnlich wie Claude Code, aber mit OpenAI-Modellen im Rücken.
+OpenAIs Coding-Agent – ähnlich wie Claude Code, aber mit OpenAI-Modellen.
 
 ### ⚡ Schnellstart
 
 ```bash
-# Installation (via pip)
 pip install openai-codex
-
-# CLI starten
-codex
-
-# Task geben
 codex "Erstelle eine Python-Funktion für Fibonacci"
 ```
 
@@ -90,55 +103,46 @@ codex "Erstelle eine Python-Funktion für Fibonacci"
 | Aspekt | Details |
 |--------|---------|
 | **Modelle** | o3, o4-mini, GPT-4o |
-| **Stärke** | Python/JavaScript/TypeScript |
-| **Integration** | Terminal-basiert, keine IDE nötig |
-| **Kosten** | OpenAI-API-Verbrauch |
+| **Stärke** | Python / JavaScript / TypeScript |
+| **Git-Integration** | ❌ Kein integriertes PR-Management |
 
-### ⚠️ Fallstricke
-
-1. **API-Key nötig** – OpenAI-Account mit Guthaben vorausgesetzt
-2. **Kein Git-Workflow** – Anders als Claude Code kein integriertes PR-Management
-3. **Regionseinschränkungen** – Nicht in allen Ländern verfügbar
+> ⚠️ **Fallstricke:**
+> 1. OpenAI-Account mit Guthaben nötig
+> 2. Kein Git/PR-Workflow eingebaut
+> 3. Nicht in allen Ländern verfügbar
 
 ---
 
-## 🧠 hermes-agent (über Hermes selbst)
+## 🧠 hermes-agent
 
-**Auslöser:** „Konfigurier Hermes", „Installier einen Skill", „Was kann Hermes?"
+> **Auslöser:** „Konfigurier Hermes", „Installier einen Skill", „Was kann Hermes?"
 
-Dieser Skill ist etwas Besonderes: Er beschreibt, wie man **Hermes Agent selbst** konfiguriert, erweitert oder zu dessen Entwicklung beiträgt.
+Dieser Skill ist besonders: Er beschreibt, wie man **Hermes selbst** konfiguriert, erweitert oder dazu beiträgt.
 
 ### 🔧 Verwendung
 
-Wenn der Skill geladen ist, kann Hermes:
+| Aktion | Befehl |
+|--------|--------|
+| Modell wechseln | `hermes config set model.default <modell>` |
+| Skills browsen | `hermes skills browse` |
+| Gateway einrichten | `hermes gateway setup` |
+| System-Check | `hermes doctor` |
+| Update | `hermes update` |
 
-| Aktion | Beschreibung |
-|--------|-------------|
-| **Config ändern** | `hermes config set model.default <modell>` |
-| **Skills verwalten** | Skills browsen, installieren, deinstallieren |
-| **Gateway einrichten** | Telegram, Discord, etc. verbinden |
-| **Setup-Assistent** | `hermes setup` für Ersteinrichtung |
-| **Troubleshooting** | `hermes doctor`, Logs analysieren |
-
-### 📚 Mehr dazu
-
-Siehe [Konfiguration](/konfiguration) und [Eigene Skills schreiben](/eigene-skills) im Compendium.
+> 📚 **Mehr dazu:** [Konfiguration](/konfiguration) und [Eigene Skills schreiben](/eigene-skills)
 
 ---
 
 ## 🔓 opencode
 
-**Auslöser:** „Nutze OpenCode", „Open-Source-Coding-Agent"
+> **Auslöser:** „Nutze OpenCode", „Open-Source-Coding-Agent"
 
-OpenCode ist eine Open-Source-Alternative zu Claude Code und Codex. Besonderheit: Starker Fokus auf **Code-Review**.
+Open-Source-Alternative zu Claude Code / Codex. Starker Fokus auf **Code-Review**.
 
 ### ⚡ Schnellstart
 
 ```bash
-# Installation
 pip install opencode
-
-# Nutzung
 opencode "Refaktor diese Funktion"
 ```
 
@@ -146,31 +150,29 @@ opencode "Refaktor diese Funktion"
 
 | Aspekt | Details |
 |--------|---------|
-| **Open Source** | Vollständig einsehbar und erweiterbar |
+| **Open Source** | Vollständig einsehbar |
 | **Code-Review** | Automatisierte PR-Reviews |
-| **Modelle** | Wechselbar (OpenRouter, lokal, etc.) |
-| **Preis** | Keine Lizenzkosten, nur API-Kosten |
+| **Modell-Freiheit** | OpenRouter, lokal, etc. |
+| **Preis** | Keine Lizenzkosten |
 
 ---
 
-## 🤔 Welcher Skill für welchen Zweck?
+## 🎯 Entscheidungsmatrix
 
-| Scenario | Empfehlung |
-|----------|-----------|
-| Große Codebase, PRs, Tests | **claude-code** (stärkste Git-Integration) |
-| Schnelle Python/JS-Skripte | **codex** (OpenAI-Modelle) |
-| Hermes selbst einrichten | **hermes-agent** (Built-in) |
-| Open Source, Code-Review | **opencode** (Open Source, Review-Fokus) |
-| Geld sparen | **opencode** (Modell frei wählbar) |
+| Scenario | ➡️ Empfehlung | Warum? |
+|----------|:-------------:|--------|
+| Große Codebase, PRs, Tests | **claude-code** | Stärkste Git-Integration |
+| Schnelle Python/JS-Skripte | **codex** | OpenAI-Modelle |
+| Hermes selbst konfigurieren | **hermes-agent** | Built-in |
+| Open Source sparen | **opencode** | Modell frei wählbar |
 
 ---
 
 ## ⚠️ Allgemeine Fallstricke
 
-1. **Sub-Agenten haben keinen Chat-Verlauf** – Immer alles Nötige in den Kontext packen
+1. **Sub-Agenten haben keinen Chat-Verlauf** – Alles Nötige in den Kontext packen
 2. **API-Kosten summieren sich** – Jeder Sub-Agent-Aufruf kostet extra
-3. **Nicht alle Tools verfügbar** – Sub-Agenten haben eingeschränkte Toolsets
-4. **Zeitlimit beachten** – Lange Tasks können timeouten (max. 600s)
+3. **Zeitlimit beachten** – Lange Tasks können timeouten (max 600s)
 
 ---
 
