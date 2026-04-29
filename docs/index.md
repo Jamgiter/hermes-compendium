@@ -1,0 +1,56 @@
+# Hermes Agent Compendium 🧠
+
+Dein deutscher Guide zu **Hermes Agent** – dem Open-Source KI-Agenten von Nous Research.
+
+Hermes Agent ist ein autonomes KI-Framework, das in deinem Terminal, auf Messaging-Plattformen und in deiner IDE läuft. Es gehört zur selben Kategorie wie Claude Code, Codex und OpenClaw – aber mit einzigartigen Features wie selbstlernenden Skills und persistentem Gedächtnis.
+
+---
+
+## 🔥 Highlights
+
+<div style="display: flex; flex-wrap: wrap; gap: 12px;">
+
+<div style="flex: 1; min-width: 200px; padding: 1.5rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft);">
+<h3>🧠 Skills</h3>
+<p>Hermes lernt aus Erfahrung. Komplexe Workflows werden als Skills gespeichert und bei Bedarf geladen.</p>
+<a href="/hermes-compendium/skills">Zu den Skills →</a>
+</div>
+
+<div style="flex: 1; min-width: 200px; padding: 1.5rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft);">
+<h3>💾 Memory</h3>
+<p>Persistentes Gedächtnis über Sitzungen hinweg – Hermes merkt sich deine Vorlieben und Projekte.</p>
+<a href="/hermes-compendium/konfiguration">Konfiguration →</a>
+</div>
+
+<div style="flex: 1; min-width: 200px; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft);"></div>
+
+</div>
+
+---
+
+## 🎯 Was Hermes besonders macht
+
+| Feature | Beschreibung |
+|---------|-------------|
+| **Self-Improving Skills** | Hermes speichert erfolgreiche Workflows als wiederverwendbare Skills |
+| **Multi-Platform Gateway** | Telegram, Discord, WhatsApp, Signal, Email & 10+ Plattformen |
+| **Provider-Agnostic** | Wechsel zwischen 20+ LLM-Providern (OpenRouter, Anthropic, DeepSeek, lokal) |
+| **Cron-Jobs** | Geplante Aufgaben – Hermes arbeitet auch, wenn du schläfst |
+| **Sub-Agenten** | Parallelaufgaben durch delegierte Kinder-Agenten |
+| **Open Source** | Vollständig quelloffen (MIT-Lizenz) auf GitHub |
+
+---
+
+## 🚧 In Arbeit
+
+- [x] Einführung & erste Schritte
+- [x] Skill-Übersicht
+- [ ] Detaillierte Skill-Beschreibungen
+- [ ] Konfigurations-Guide
+- [ ] Tipps aus der Praxis
+- [ ] Multi-Platform Setup (Telegram, Discord)
+- [ ] Eigenen Skill schreiben
+
+---
+
+*Hinweis: Dies ist ein inoffizielles Fan-Projekt.*
