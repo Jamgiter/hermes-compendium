@@ -4,44 +4,78 @@
 
 ## 📝 Note-Taking
 
+<div class="skill-card">
+
+### 📌 Auf einen Blick
+
 | Skill | Beschreibung |
 |-------|-------------|
 | **obsidian** | Notizen im Obsidian-Vault lesen, suchen, erstellen |
 
-**Auslöser:** „Such in meinen Notizen", „Erstell ne Notiz", „Obsidian"
+</div>
 
-Ermöglicht Hermes den Zugriff auf deinen Obsidian-Vault. Notizen lesen, durchsuchen, neue anlegen – alles direkt aus der Session. Nützlich für: Wissensmanagement, Recherche-Dokumentation, Daily Notes.
+<div class="skill-card">
+
+### 🗃️ obsidian
+
+| | |
+|---|---|
+| **🎯 Auslöser** | `„Such in meinen Notizen"` · `„Erstell ne Notiz"` · `„Obsidian"` |
+| **⚡ Features** | Lese-, Such- und Schreibzugriff auf deinen Obsidian-Vault — direkt aus der Session. Ideal für Wissensmanagement, Recherche-Dokumentation und Daily Notes. |
+| **⚠️ Fallstricke** | Keine Vault-Strukturänderungen (Ordner anlegen/verschieben). Kein Graph-View oder Tag-Explorer. |
+
+</div>
 
 ---
 
 ## 🤖 OpenSim NPC Building
 
-Skills für OpenSimulator – KI-gestützte NPCs in virtuellen Welten.
+KI-gestützte NPCs für OpenSimulator-Welten.
+
+<div class="skill-card">
+
+### 📌 Auf einen Blick
 
 | Skill | Beschreibung |
 |-------|-------------|
 | **opensim-npc-building** | Bau-Workflows für den OpenSim NPC Bot (Ollama Bot) |
-| **opensim-ossl-npc-bridge** | OSSL NPC + Hermes Agent Bridge – Realtime AI NPC |
+| **opensim-ossl-npc-bridge** | OSSL NPC + Hermes Agent Bridge — Realtime AI NPC |
 
-Diese Skills sind für alle, die OpenSimulator-Welten betreiben und KI-gestützte NPCs erstellen wollen.
+</div>
 
-### opensim-npc-building
+<div class="skill-card">
 
-**Auslöser:** „NPC bauen für OpenSim", „Ollama Bot"
+### 🏗️ opensim-npc-building
 
-Bau-Workflows für den OpenSim NPC Bot. Nutzt Ollama für lokale KI und GridClient für die Steuerung im OpenSim.
+| | |
+|---|---|
+| **🎯 Auslöser** | `„NPC bauen für OpenSim"` · `„Ollama Bot"` |
+| **⚡ Features** | Bau-Workflows für den OpenSim NPC Bot. Nutzt Ollama für lokale KI und GridClient zur Steuerung in OpenSim. |
+| **⚠️ Fallstricke** | Erfordert laufenden Ollama-Dienst. GridClient muss kompatibel zur OpenSim-Version sein. |
 
-### opensim-ossl-npc-bridge
+</div>
 
-**Auslöser:** „Echtzeit-NPC in OpenSim", „OSSL + Hermes"
+<div class="skill-card">
 
-Brücke zwischen OpenSims OSSL-Skriptsprache und Hermes Agent. Ermöglicht NPCs, die in Echtzeit mit Hermes' KI kommunizieren – für dynamische Dialoge und reaktives Verhalten.
+### 🔗 opensim-ossl-npc-bridge
+
+| | |
+|---|---|
+| **🎯 Auslöser** | `„Echtzeit-NPC in OpenSim"` · `„OSSL + Hermes"` |
+| **⚡ Features** | Brücke zwischen OpenSims OSSL-Skriptsprache und Hermes Agent. NPCs kommunizieren in Echtzeit mit Hermes' KI — für dynamische Dialoge und reaktives Verhalten. |
+| **⚠️ Fallstricke** | Latenz bei langsamer Netzwerkanbindung. OSSL-Rechte im OpenSim müssen freigegeben sein. |
+
+</div>
 
 ---
 
 ## 💼 Productivity
 
 Dokumente, Präsentationen, Termine, E-Mails und mehr.
+
+<div class="skill-card">
+
+### 📌 Auf einen Blick
 
 | Skill | Beschreibung |
 |-------|-------------|
@@ -54,26 +88,52 @@ Dokumente, Präsentationen, Termine, E-Mails und mehr.
 | **ocr-and-documents** | Text aus PDFs/Scans extrahieren (pymupdf, marker-pdf) |
 | **powerpoint** | .pptx-Präsentationen erstellen, lesen, bearbeiten |
 
-### google-workspace
+</div>
 
-**Auslöser:** „Schreib ne Mail", „Termin im Kalender", „Google Doc lesen"
+<div class="skill-card">
 
-Vollständige Integration mit Google Workspace: Mails senden/lesen via Gmail, Termine verwalten im Kalender, Dokumente bearbeiten in Docs/Sheets.
+### 🧩 google-workspace
 
-### notion
+| | |
+|---|---|
+| **🎯 Auslöser** | `„Schreib ne Mail"` · `„Termin im Kalender"` · `„Google Doc lesen"` |
+| **⚡ Features** | Vollständige Integration: Mails senden/lesen via Gmail, Termine verwalten im Kalender, Dokumente bearbeiten in Docs/Sheets. |
+| **⚠️ Fallstricke** | OAuth-Refresh-Token nötig. Rate-Limits bei vielen API-Calls. Kein Zugriff auf Google Chat/Meet. |
 
-**Auslöser:** „Notion-Seite lesen", „Datenbank in Notion", „Eintrag erstellen"
+</div>
 
-Steuert Notion via REST API: Pages lesen/schreiben, Datenbanken abfragen, Blöcke manipulieren, suchen.
+<div class="skill-card">
 
-### ocr-and-documents
+### 🧩 notion
 
-**Auslöser:** „Scan einscannen", „PDF als Text", „Dokument auslesen"
+| | |
+|---|---|
+| **🎯 Auslöser** | `„Notion-Seite lesen"` · `„Datenbank in Notion"` · `„Eintrag erstellen"` |
+| **⚡ Features** | Steuert Notion via REST API: Pages lesen/schreiben, Datenbanken abfragen, Blöcke manipulieren, suchen. |
+| **⚠️ Fallstricke** | Notion-API-Token erforderlich. Kein Zugriff auf geschützte Seiten ohne Integration-Einladung. |
 
-Extrahiert Text aus PDFs und Bildern via pymupdf und marker-pdf. Erkennt Tabellen, Layouts und Strukturen.
+</div>
 
-### nano-pdf
+<div class="skill-card">
 
-**Auslöser:** „PDF-Tippfehler korrigieren", „PDF-Titel ändern"
+### 🧩 ocr-and-documents
 
-Erlaubt gezielte Text-Änderungen in PDFs – Tippfehler korrigieren, Titel ändern, Texte ersetzen – ohne die PDF neu zu generieren.
+| | |
+|---|---|
+| **🎯 Auslöser** | `„Scan einscannen"` · `„PDF als Text"` · `„Dokument auslesen"` |
+| **⚡ Features** | Extrahiert Text aus PDFs und Bildern via pymupdf und marker-pdf. Erkennt Tabellen, Layouts und Strukturen. |
+| **⚠️ Fallstricke** | Handschrift wird nicht erkannt. Sehr große PDFs (>100 Seiten) können timeouten. |
+
+</div>
+
+<div class="skill-card">
+
+### 🧩 nano-pdf
+
+| | |
+|---|---|
+| **🎯 Auslöser** | `„PDF-Tippfehler korrigieren"` · `„PDF-Titel ändern"` |
+| **⚡ Features** | Gezielte Text-Änderungen in PDFs — Tippfehler korrigieren, Titel ändern, Texte ersetzen — ohne Neu-Generierung. |
+| **⚠️ Fallstricke** | Nur für digitale (nicht gescannte) PDFs. Layout kann bei Ersetzung längerer Texte brechen. |
+
+</div>
