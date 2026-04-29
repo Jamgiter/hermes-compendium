@@ -28,6 +28,8 @@ export default defineConfig({
           { text: '💻 Software Dev / 🌐 Web / 💰 Yuanbao', link: '/skills/dev-web-yuanbao' },
         ],
       },
+      { text: '⚡ Cheatsheet', link: '/cheatsheet' },
+      { text: '🔧 Troubleshooting', link: '/troubleshooting' },
       { text: 'Konfiguration', link: '/konfiguration' },
       { text: 'Tipps', link: '/tipps' },
       { text: 'Multi-Plattform', link: '/multiplattform' },
@@ -39,6 +41,8 @@ export default defineConfig({
       '/': [
         { text: '🏠 Start', link: '/' },
         { text: '📖 Einführung', link: '/einfuehrung' },
+        { text: '⚡ Cheatsheet', link: '/cheatsheet' },
+        { text: '🔧 Troubleshooting', link: '/troubleshooting' },
         {
           text: '📚 Skills',
           collapsed: false,

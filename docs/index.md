@@ -87,6 +87,8 @@ Hermes Agent ist ein autonomes KI-Framework, das in deinem Terminal, auf Messagi
 - [x] FAQ
 - [x] Impressum-Seite
 - [x] Detaillierte Skill-Beschreibungen
+- [x] Cheatsheet
+- [x] Troubleshooting
 - [ ] Changelog / Versionshistorie
 
 ---
