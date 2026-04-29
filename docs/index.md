@@ -22,7 +22,11 @@ Hermes Agent ist ein autonomes KI-Framework, das in deinem Terminal, auf Messagi
 <a href="/hermes-compendium/konfiguration">Konfiguration →</a>
 </div>
 
-<div style="flex: 1; min-width: 200px; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft);"></div>
+<div style="flex: 1; min-width: 200px; padding: 1.5rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft);">
+<h3>📱 Multi-Plattform</h3>
+<p>Telegram, Discord, WhatsApp, Signal – chatte mit Hermes von überall.</p>
+<a href="/hermes-compendium/multiplattform">Mehr erfahren →</a>
+</div>
 
 </div>
 
