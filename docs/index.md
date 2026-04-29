@@ -29,6 +29,18 @@ Hermes Agent ist ein autonomes KI-Framework, das in deinem Terminal, auf Messagi
 </div>
 
 <div style="flex: 1; min-width: 200px; padding: 1.5rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft);">
+<h3>⚡ Cheatsheet</h3>
+<p>Die wichtigsten Hermes-Befehle auf einen Blick – zum schnellen Nachschlagen.</p>
+<a href="/hermes-compendium/cheatsheet">Zum Cheatsheet →</a>
+</div>
+
+<div style="flex: 1; min-width: 200px; padding: 1.5rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft);">
+<h3>🔧 Troubleshooting</h3>
+<p>Häufige Fehler und Lösungen – von API-Problemen bis Config-Fallen.</p>
+<a href="/hermes-compendium/troubleshooting">Zur Fehlersuche →</a>
+</div>
+
+<div style="flex: 1; min-width: 200px; padding: 1.5rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft);">
 <h3>⚙️ Konfiguration</h3>
 <p>Config, API-Keys, Provider-Liste, Toolsets, Cron-Jobs und Profile.</p>
 <a href="/hermes-compendium/konfiguration">Zur Konfiguration →</a>
@@ -80,6 +92,8 @@ Hermes Agent ist ein autonomes KI-Framework, das in deinem Terminal, auf Messagi
 - [x] Einführung & erste Schritte
 - [x] Skill-Übersicht
 - [x] Eigenen Skill schreiben (Anleitung)
+- [x] Cheatsheet
+- [x] Troubleshooting
 - [x] Konfigurations-Guide
 - [x] Tipps aus der Praxis
 - [x] Multi-Platform Setup (Telegram, Discord)
@@ -87,8 +101,6 @@ Hermes Agent ist ein autonomes KI-Framework, das in deinem Terminal, auf Messagi
 - [x] FAQ
 - [x] Impressum-Seite
 - [x] Detaillierte Skill-Beschreibungen
-- [x] Cheatsheet
-- [x] Troubleshooting
 - [ ] Changelog / Versionshistorie
 
 ---
