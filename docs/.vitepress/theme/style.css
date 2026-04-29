@@ -157,11 +157,16 @@ a:hover {
     --vp-c-gutter: #1a2332;
 }
 
-/* Tech Hero-Hintergrund (Dark) */
+/* Ruhiger Dark-Hintergrund (CSS-Gradient statt Bild) */
 .dark body:has(.VPContent .vp-doc h1:first-child)::before {
     background:
-        linear-gradient(180deg, rgba(10,14,23,0.80) 0%, rgba(10,14,23,0.40) 50%, rgba(10,14,23,0.85) 100%),
-        url('/hermes-compendium/hero-bg.jpg') center center / cover no-repeat;
+        linear-gradient(180deg,
+            rgba(10,14,23,1) 0%,
+            rgba(15,20,35,1) 25%,
+            rgba(10,14,23,0.98) 50%,
+            rgba(8,12,20,1) 75%,
+            rgba(10,14,23,1) 100%
+        );
 }
 
 /* Tabellen Dark */
