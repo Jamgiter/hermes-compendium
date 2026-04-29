@@ -157,17 +157,17 @@ a:hover {
     --vp-c-gutter: #1a2332;
 }
 
-/* Ruhiger Dark-Hintergrund mit Tiefe */
+/* Dark-Hintergrund: Helles Bild leicht durchschimmern */
 .dark body:has(.VPContent .vp-doc h1:first-child)::before {
     background:
-        radial-gradient(ellipse 80% 60% at 50% 30%, rgba(15, 25, 50, 0.6) 0%, transparent 60%),
         linear-gradient(180deg,
-            #080b14 0%,
-            #0d1525 35%,
-            #111a2e 50%,
-            #0d1525 65%,
-            #080b14 100%
-        );
+            rgba(8,11,20,0.97) 0%,
+            rgba(10,14,25,0.94) 30%,
+            rgba(10,14,25,0.90) 50%,
+            rgba(10,14,25,0.94) 70%,
+            rgba(8,11,20,0.97) 100%
+        ),
+        url('/hermes-compendium/hero-bg-light.jpg') center center / cover no-repeat;
 }
 
 /* Tabellen Dark */
