@@ -195,6 +195,11 @@ a:hover {
     border-right-color: var(--vp-c-divider);
 }
 
+/* Footer immer anzeigen (auch mit Sidebar) */
+.VPFooter.has-sidebar {
+    display: block !important;
+}
+
 .dark code {
     color: #79c0ff;
 }
