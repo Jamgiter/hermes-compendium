@@ -107,7 +107,7 @@ Ja! Über das **Gateway**: Hermes auf einem 24/7-Server installieren, Telegram- 
 
 Ja, aber aufwändiger: Developer Portal, Bot erstellen, Intents aktivieren, Bot einladen.
 
-Siehe: [Multi-Plattform Setup](/hermes-compendium/multiplattform)
+Siehe: [Multi-Plattform Setup](/multiplattform)
 
 ---
 
