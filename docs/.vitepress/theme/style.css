@@ -196,7 +196,7 @@ a:hover {
 }
 
 /* Footer immer anzeigen (auch mit Sidebar) */
-.VPFooter.has-sidebar {
+.VPFooter.has-sidebar[data-v-e315a0ad] {
     display: block !important;
 }
 
