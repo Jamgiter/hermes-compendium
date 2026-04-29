@@ -23,6 +23,12 @@ Hermes Agent ist ein autonomes KI-Framework, das in deinem Terminal, auf Messagi
 </div>
 
 <div style="flex: 1; min-width: 200px; padding: 1.5rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft);">
+<h3>🛠️ Skills schreiben</h3>
+<p>Eigene Skills erstellen – Frontmatter, Struktur, Best Practices & Beispiele.</p>
+<a href="/hermes-compendium/eigene-skills">Zur Anleitung →</a>
+</div>
+
+<div style="flex: 1; min-width: 200px; padding: 1.5rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft);">
 <h3>⚙️ Konfiguration</h3>
 <p>Config, API-Keys, Provider-Liste, Toolsets, Cron-Jobs und Profile.</p>
 <a href="/hermes-compendium/konfiguration">Zur Konfiguration →</a>
@@ -73,12 +79,12 @@ Hermes Agent ist ein autonomes KI-Framework, das in deinem Terminal, auf Messagi
 
 - [x] Einführung & erste Schritte
 - [x] Skill-Übersicht
+- [x] Eigenen Skill schreiben (Anleitung)
 - [x] Konfigurations-Guide
 - [x] Tipps aus der Praxis
 - [x] Multi-Platform Setup (Telegram, Discord)
 - [x] Glossar
 - [x] FAQ
-- [ ] Eigenen Skill schreiben (Anleitung)
 - [x] Impressum-Seite
 - [ ] Detaillierte Skill-Beschreibungen
 - [ ] Changelog / Versionshistorie
