@@ -19,6 +19,34 @@ Standardpfad: `~/.hermes/config.yaml`
 
 ### Modell & Provider
 
+Unterstützte Provider:
+
+| Provider | Authentifizierung | Env-Variable |
+|----------|:-----------------:|--------------|
+| **OpenRouter** | API-Key | `OPENROUTER_API_KEY` |
+| **Anthropic** | API-Key | `ANTHROPIC_API_KEY` |
+| **Nous Portal** | OAuth | `hermes auth` |
+| **OpenAI Codex** | OAuth | `hermes auth` |
+| **GitHub Copilot** | Token | `COPILOT_GITHUB_TOKEN` |
+| **Google Gemini** | API-Key | `GOOGLE_API_KEY` / `GEMINI_API_KEY` |
+| **DeepSeek** | API-Key | `DEEPSEEK_API_KEY` |
+| **xAI / Grok** | API-Key | `XAI_API_KEY` |
+| **Hugging Face** | Token | `HF_TOKEN` |
+| **Z.AI / GLM** | API-Key | `GLM_API_KEY` |
+| **MiniMax** | API-Key | `MINIMAX_API_KEY` |
+| **MiniMax CN** | API-Key | `MINIMAX_CN_API_KEY` |
+| **Kimi / Moonshot** | API-Key | `KIMI_API_KEY` |
+| **Alibaba / DashScope** | API-Key | `DASHSCOPE_API_KEY` |
+| **Xiaomi MiMo** | API-Key | `XIAOMI_API_KEY` |
+| **Kilo Code** | API-Key | `KILOCODE_API_KEY` |
+| **AI Gateway (Vercel)** | API-Key | `AI_GATEWAY_API_KEY` |
+| **OpenCode Zen** | API-Key | `OPENCODE_ZEN_API_KEY` |
+| **OpenCode Go** | API-Key | `OPENCODE_GO_API_KEY` |
+| **Qwen OAuth** | OAuth | `hermes login --provider qwen-oauth` |
+| **Custom Endpoint** | Config | `model.base_url` + `.env` |
+
+Wechseln mit: `hermes model` (interaktiv) oder `hermes config set model.default <modell>`
+
 ```yaml
 model:
   default: deepseek/deepseek-chat     # Standard-Modell
