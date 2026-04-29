@@ -157,15 +157,16 @@ a:hover {
     --vp-c-gutter: #1a2332;
 }
 
-/* Ruhiger Dark-Hintergrund (CSS-Gradient statt Bild) */
+/* Ruhiger Dark-Hintergrund mit Tiefe */
 .dark body:has(.VPContent .vp-doc h1:first-child)::before {
     background:
+        radial-gradient(ellipse 80% 60% at 50% 30%, rgba(15, 25, 50, 0.6) 0%, transparent 60%),
         linear-gradient(180deg,
-            rgba(10,14,23,1) 0%,
-            rgba(15,20,35,1) 25%,
-            rgba(10,14,23,0.98) 50%,
-            rgba(8,12,20,1) 75%,
-            rgba(10,14,23,1) 100%
+            #080b14 0%,
+            #0d1525 35%,
+            #111a2e 50%,
+            #0d1525 65%,
+            #080b14 100%
         );
 }
 
