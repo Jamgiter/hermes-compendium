@@ -15,6 +15,7 @@ export default defineConfig({
       { text: 'Skills', link: '/skills' },
       { text: 'Konfiguration', link: '/konfiguration' },
       { text: 'Tipps', link: '/tipps' },
+      { text: 'Multi-Plattform', link: '/multiplattform' },
     ],
 
     sidebar: {},
