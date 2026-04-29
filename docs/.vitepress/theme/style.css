@@ -53,7 +53,7 @@ body:not(.dark):has(.VPContent .vp-doc h1:first-child)::before {
     width: 100%;
     height: 100vh;
     background:
-        linear-gradient(180deg, rgba(250,243,232,0.92) 0%, rgba(250,243,232,0.70) 50%, rgba(250,243,232,0.95) 100%),
+        linear-gradient(180deg, rgba(250,243,232,0.93) 0%, rgba(250,243,232,0.65) 50%, rgba(250,243,232,0.95) 100%),
         url('/hermes-compendium/hero-bg-light.jpg') center center / cover no-repeat;
     z-index: -1;
     pointer-events: none;
@@ -204,4 +204,25 @@ a:hover {
 }
 .dark footer {
     border-top-color: #1e3a5f;
+}
+
+/* === Bernsteinfarbene Überschriften === */
+:root h1,
+:root h2,
+:root h3,
+:root h4 {
+    color: #c0842b;
+}
+:root h1 {
+    color: #b8860b;
+}
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4 {
+    color: #f59e0b;
+}
+.dark h1 {
+    color: #fbbf24;
 }
