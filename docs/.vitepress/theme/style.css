@@ -63,6 +63,14 @@ body:not(.dark):has(.VPContent .vp-doc h1:first-child)::before {
     position: relative;
 }
 
+/* Keine Sidebar – volle Breite */
+.VPContent.has-sidebar {
+    padding-left: 0 !important;
+}
+.VPSidebar {
+    display: none !important;
+}
+
 /* Vintage Footer */
 footer {
     border-top: 1px solid var(--vp-c-divider);

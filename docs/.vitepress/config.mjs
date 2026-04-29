@@ -17,40 +17,7 @@ export default defineConfig({
       { text: 'Tipps', link: '/tipps' },
     ],
 
-    sidebar: {
-      '/einfuehrung': [
-        {
-          text: 'Erste Schritte',
-          items: [
-            { text: 'Was ist Hermes Agent?', link: '/einfuehrung' },
-          ],
-        },
-      ],
-      '/skills': [
-        {
-          text: 'Skill-Kategorien',
-          items: [
-            { text: 'Übersicht', link: '/skills' },
-          ],
-        },
-      ],
-      '/konfiguration': [
-        {
-          text: 'Konfiguration',
-          items: [
-            { text: 'Übersicht', link: '/konfiguration' },
-          ],
-        },
-      ],
-      '/tipps': [
-        {
-          text: 'Tipps & Tricks',
-          items: [
-            { text: 'Übersicht', link: '/tipps' },
-          ],
-        },
-      ],
-    },
+    sidebar: {},
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/NousResearch/hermes-agent' },
