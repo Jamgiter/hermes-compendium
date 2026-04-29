@@ -11,21 +11,45 @@ Hermes Agent ist ein autonomes KI-Framework, das in deinem Terminal, auf Messagi
 <div style="display: flex; flex-wrap: wrap; gap: 12px;">
 
 <div style="flex: 1; min-width: 200px; padding: 1.5rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft);">
-<h3>🧠 Skills</h3>
-<p>Hermes lernt aus Erfahrung. Komplexe Workflows werden als Skills gespeichert und bei Bedarf geladen.</p>
+<h3>📖 Einführung</h3>
+<p>Was ist Hermes Agent? Installation, erste Schritte und Kernkonzepte.</p>
+<a href="/hermes-compendium/einfuehrung">Zur Einführung →</a>
+</div>
+
+<div style="flex: 1; min-width: 200px; padding: 1.5rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft);">
+<h3>📚 Skills</h3>
+<p>Alle verfügbaren Skills – von Autonomous AI Agents bis Web Development.</p>
 <a href="/hermes-compendium/skills">Zu den Skills →</a>
 </div>
 
 <div style="flex: 1; min-width: 200px; padding: 1.5rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft);">
-<h3>💾 Memory</h3>
-<p>Persistentes Gedächtnis über Sitzungen hinweg – Hermes merkt sich deine Vorlieben und Projekte.</p>
-<a href="/hermes-compendium/konfiguration">Konfiguration →</a>
+<h3>⚙️ Konfiguration</h3>
+<p>Config, API-Keys, Provider-Liste, Toolsets, Cron-Jobs und Profile.</p>
+<a href="/hermes-compendium/konfiguration">Zur Konfiguration →</a>
+</div>
+
+<div style="flex: 1; min-width: 200px; padding: 1.5rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft);">
+<h3>🧠 Tipps</h3>
+<p>Praktische Workflows, Fallstricke, Debugging und GitHub-Tricks.</p>
+<a href="/hermes-compendium/tipps">Zu den Tipps →</a>
 </div>
 
 <div style="flex: 1; min-width: 200px; padding: 1.5rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft);">
 <h3>📱 Multi-Plattform</h3>
 <p>Telegram, Discord, WhatsApp, Signal – chatte mit Hermes von überall.</p>
 <a href="/hermes-compendium/multiplattform">Mehr erfahren →</a>
+</div>
+
+<div style="flex: 1; min-width: 200px; padding: 1.5rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft);">
+<h3>📖 Glossar</h3>
+<p>50+ Begriffe von A wie Agent bis Z wie Z.AI – kurz erklärt.</p>
+<a href="/hermes-compendium/glossar">Zum Glossar →</a>
+</div>
+
+<div style="flex: 1; min-width: 200px; padding: 1.5rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft);">
+<h3>❓ FAQ</h3>
+<p>Häufige Fragen zu Installation, Nutzung, Plattformen und Fehlern.</p>
+<a href="/hermes-compendium/faq">Zur FAQ →</a>
 </div>
 
 </div>

@@ -28,7 +28,7 @@ export default defineConfig({
 
     footer: {
       message: 'Fan-Projekt · <a href="/hermes-compendium/impressum">Impressum</a> · <a href="https://jamgrid.de">jamgrid.de</a>',
-      copyright: 'J.Muck — Hermes Agent<br><img src="/hermes-compendium/logo.svg" alt="Logo" class="footer-logo" style="height:24px;margin-top:8px;opacity:0.6">',
+      copyright: 'J.Muck — Hermes Agent<br><img src="/hermes-compendium/jmlogo.jpg" alt="Logo" class="footer-logo" style="height:32px;margin-top:8px;opacity:0.6;border-radius:4px">',
     },
 
     search: {
