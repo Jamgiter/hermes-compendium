@@ -1,1 +1,0 @@
-import{_ as n,o as r,c as t,ag as s}from"./chunks/framework.5wcOFaQl.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"skills.md","filePath":"skills.md"}'),i={name:"skills.md"};function o(a,e,g,l,u,d){return r(),t("div",null,[...e[0]||(e[0]=[s("",2)])])}const h=n(i,[["render",o]]);export{m as __pageData,h as default};
