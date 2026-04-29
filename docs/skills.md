@@ -2,7 +2,8 @@
 
 Hermes Agent hat eine wachsende Bibliothek an Skills – wiederverwendbare Anleitungen für bestimmte Aufgaben. Hier findest du alle verfügbaren Skills, kategorisiert.
 
-> 💡 **Tipp:** Ein Skill wird geladen mit `/skill <name>` in der Session oder per `hermes -s <name>` beim Start.
+> 💡 **Tipp:** Ein Skill wird geladen mit `/skill <name>` in der Session oder per `hermes -s <name>` beim Start.  
+> Neue eigene Skills erstellen? → [**Eigene Skills schreiben**](/eigene-skills) 📝
 
 ---
 

@@ -13,6 +13,7 @@ export default defineConfig({
       { text: 'Start', link: '/' },
       { text: 'Einführung', link: '/einfuehrung' },
       { text: 'Skills', link: '/skills' },
+      { text: 'Skills schreiben', link: '/eigene-skills' },
       { text: 'Konfiguration', link: '/konfiguration' },
       { text: 'Tipps', link: '/tipps' },
       { text: 'Multi-Plattform', link: '/multiplattform' },
@@ -20,7 +21,26 @@ export default defineConfig({
       { text: 'FAQ', link: '/faq' },
     ],
 
-    sidebar: {},
+    sidebar: {
+      '/': [
+        { text: 'Start', link: '/' },
+        { text: 'Einführung', link: '/einfuehrung' },
+        {
+          text: 'Skills',
+          collapsed: false,
+          items: [
+            { text: 'Übersicht', link: '/skills' },
+            { text: 'Eigene Skills schreiben', link: '/eigene-skills' },
+          ],
+        },
+        { text: 'Konfiguration', link: '/konfiguration' },
+        { text: 'Tipps & Tricks', link: '/tipps' },
+        { text: 'Multi-Plattform', link: '/multiplattform' },
+        { text: 'Glossar', link: '/glossar' },
+        { text: 'FAQ', link: '/faq' },
+        { text: 'Impressum', link: '/impressum' },
+      ],
+    },
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/NousResearch/hermes-agent' },
