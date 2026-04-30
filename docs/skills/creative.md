@@ -21,13 +21,19 @@
 </div>
 
 <div style="flex: 1; min-width: 140px; padding: 1rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft); text-align: center;">
-<div style="font-size: 2rem; margin-bottom: 4px;">🖌️</div>
-<strong>p5js</strong><br>
-<small style="color: var(--vp-c-text-2);">Generative Kunst & 3D</small>
-</div>
+    <div style="font-size: 2rem; margin-bottom: 4px;">🖌️</div>
+    <strong>p5js</strong><br>
+    <small style="color: var(--vp-c-text-2);">Generative Kunst & 3D</small>
+    </div>
 
-<div style="flex: 1; min-width: 140px; padding: 1rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft); text-align: center;">
-<div style="font-size: 2rem; margin-bottom: 4px;">🎥</div>
+    <div style="flex: 1; min-width: 140px; padding: 1rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft); text-align: center;">
+    <div style="font-size: 2rem; margin-bottom: 4px;">🤖</div>
+    <strong>comfyui</strong><br>
+    <small style="color: var(--vp-c-text-2);">KI-Bild/Video/Audio lokal</small>
+    </div>
+
+    <div style="flex: 1; min-width: 140px; padding: 1rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft); text-align: center;">
+    <div style="font-size: 2rem; margin-bottom: 4px;">🎥</div>
 <strong>manim-video</strong><br>
 <small style="color: var(--vp-c-text-2);">3Blue1Brown-Animationen</small>
 </div>
@@ -54,6 +60,7 @@ KI-Kreativwerkzeuge für Bilder, ASCII, Video, Audio und Design. Von Pixel-Art �
 | **baoyu-comic** | Comic | Bild | KI-Modell |
 | **baoyu-infographic** | Grafik | PNG/SVG | KI-Modell |
 | **claude-design** | Web | HTML | Claude API |
+| **comfyui** | Bild/Video/Audio | PNG/MP4/WAV | ROCm/CUDA (lokal) |
 | **design-md** | Spezifikation | Markdown/JSON | Built-in |
 | **excalidraw** | Diagramm | JSON/SVG | Built-in |
 | **humanizer** | Text | Text | Built-in |
@@ -174,6 +181,70 @@ User: "Design eine Landingpage für eine KI-Beratung"
 
 ---
 
+## 🤖 comfyui
+
+> **Auslöser:** „Generier mir ein Bild\", „ComfyUI-Workflow\", „Bild mit KI\", „Video generieren\", „Inpainting\"
+
+**ComfyUI** ist eine visuelle Node-basierte Workflow-Engine für generative KI – das Schweizer Taschenmesser für lokale Bild-, Video- und Audiogenerierung. Alles läuft lokal auf der GPU (ROCm/CUDA) und wird im Browser per Drag-&-Drop-Editor bedient.
+
+### ⚡ Schnellstart
+
+```bash
+# Voraussetzung: comfy-cli installiert
+pip install comfy-cli
+
+# ComfyUI installieren (ROCm für AMD, --nvidia für NVIDIA)
+comfy --skip-prompt install --amd
+
+# Server starten
+comfy launch --background
+
+# Modell laden (z.B. SDXL)
+comfy model download \\
+  --url "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors" \\
+  --relative-path models/checkpoints
+
+# Workflow ausführen (API-Format)
+python3 scripts/run_workflow.py \\
+  --workflow workflow_api.json \\
+  --args '{"prompt": "a beautiful sunset"}' \\
+  --output-dir ./outputs
+```
+
+### 🔑 Features
+
+| Feature | Nutzen |
+|---------|--------|
+| **Node-Editor** | Visuelles Drag-&-Drop für komplexe Pipelines |
+| **Text→Bild** | SDXL, Flux & Co. aus Textprompts |
+| **Img2Img** | Bilder basierend auf Vorlage umwandeln |
+| **Inpainting/Outpainting** | Bildteile ersetzen oder erweitern |
+| **ControlNet** | Pose, Tiefe, Kanten, Scribble – alles steuerbar |
+| **Video** | AnimateDiff, Hunyuan Video |
+| **Audio** | MusicGen / AudioCraft |
+| **Upscaling** | Bilder hochskalieren + Face Restoration |
+| **API-Steuerung** | Workflows per REST/CLI automatisieren |
+
+### 💻 Lokal vs. Cloud
+
+| Aspekt | Lokal | Comfy Cloud |
+|--------|:-----:|:-----------:|
+| GPU | Eigene (≥6 GB VRAM) | RTX 6000 Pro |
+| Kosten | Gratis (nur Strom) | Abo nötig |
+| Setup | 5–10 Min | Null |
+| Modelle | Selbst laden | Alle vorinstalliert |
+| Datenschutz | ✅ Alles lokal | ❌ Daten auf Servern |
+
+> ⚠️ **Fallstricke:**
+> 1. **GPU nötig** – Ohne dedizierte GPU (≥6 GB VRAM) nur Cloud möglich
+> 2. **ROCm/CUDA** – AMD-Nutzer brauchen ROCm, NVIDIA CUDA (beides separat)
+> 3. **Modelle sind groß** – SDXL ~6.5 GB, Flux ~12 GB, gutes Internet nötig
+> 4. **Workflows im API-Format** – Der „Save (API Format)\"-Button im Editor muss verwendet werden
+> 5. **VRAM-Limit** – Flux und Video brauchen ≥12 GB VRAM
+> 6. **Custom Nodes** – Manche Workflows brauchen zusätzliche Nodes (`comfy node install <name>`)
+
+---
+
 ## 🖌️ p5js
 
 > **Auslöser:** „Generative Art", „p5.js Sketch", „Interaktive Visualisierung"
@@ -258,6 +329,7 @@ class SquareToCircle(Scene):
 | Schnelle Banner / Terminal-ASCII | **ascii-art** | Sekundenschnell, kein Setup |
 | Architektur-Skizze / Wireframe | **excalidraw** | Handgezeichneter Look, intuitiv |
 | Einmalige Landingpage / Prototyp | **claude-design** | Single-File, sofort nutzbar |
+| KI-Bild/Video/Audio lokale Generierung | **comfyui** | Node-Editor, alle Modelle, lokal |
 | Generative Kunst / interaktive Grafik | **p5js** | Browser-basiert, Live-Editor |
 | Mathe-/Algorithmus-Erklärvideo | **manim-video** | 3Blue1Brown-Qualität |
 | Inspirationsquelle / Design-Referenz | **popular-web-designs** | 54 echte Systeme als Code |
