@@ -243,6 +243,8 @@ python3 scripts/run_workflow.py \\
 > 5. **VRAM-Limit** – Flux und Video brauchen ≥12 GB VRAM
 > 6. **Custom Nodes** – Manche Workflows brauchen zusätzliche Nodes (`comfy node install NAME`)
 
+> 📖 **Ausführliche Anleitung?** → Siehe [ComfyUI Guide](/comfyui-guide) mit Schritt-für-Schritt-Workflows für Bilder, Audio und Video.
+
 ---
 
 ## 🖌️ p5js
