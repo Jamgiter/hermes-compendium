@@ -177,6 +177,75 @@ Hermes Workspace bietet ein **Web-UI-Dashboard** für diesen Swarm – Conductor
 
 ---
 
+## 🔌 MCP – Model Context Protocol
+
+MCP ist ein offener Standard, um Hermes mit **externen Werkzeugen** zu erweitern – wie USB-C für AI-Tools. Während `delegate_task` mehr **Gehirne** parallel schaltet, gibt MCP einem Gehirn **mehr Werkzeuge**.
+
+### MCP vs. delegate_task
+
+| | `delegate_task` | MCP |
+|--|:--:|:--:|
+| **Was?** | Parallele Subagenten | Externe Tool-Bibliothek |
+| **Lebensdauer** | Nur während meines Turns | **Dauerhafte Verbindung** |
+| **Eigenes Modell?** | Optional (z.B. Claude) | Nein, ich rufe die Tools |
+| **Isolation** | Völlig unabhängig | Läuft in meinem Prozess |
+| **Ideal für** | Komplexe Parallelarbeit | Spezial-Tools (DB, GitHub, Browser) |
+
+### Installation
+
+```bash
+pip install mcp              # MCP-Paket für Hermes
+```
+
+Dann Server in `~/.hermes/config.yaml` eintragen:
+
+```yaml
+mcp_servers:
+  dateiname:
+    command: "npx"
+    args: ["-y", "@modelcontextprotocol/server-filesystem", "/pfad"]
+  github:
+    command: "npx"
+    args: ["-y", "@modelcontextprotocol/server-github"]
+    env:
+      GITHUB_PERSONAL_ACCESS_TOKEN: "ghp_..."
+  puppeteer:
+    command: "npx"
+    args: ["-y", "@modelcontextprotocol/server-puppeteer"]
+```
+
+Nach `/reset` entdeckt Hermes die Server automatisch. Die Tools erscheinen als `mcp_{server}_{tool}` – z.B. `mcp_puppeteer_screenshot`.
+
+### Welche MCP-Server lohnen sich?
+
+| Server | Nutzen | Befehl |
+|--------|--------|--------|
+| **Puppeteer** | Browser-Screenshots, Seiten analysieren | `npx @modelcontextprotocol/server-puppeteer` |
+| **Filesystem** | Erweiterter Dateizugriff | `npx @modelcontextprotocol/server-filesystem /pfad` |
+| **GitHub** | Issues, PRs, Repos ohne `gh` CLI | `npx @modelcontextprotocol/server-github` |
+| **Sqlite** | Direkte SQL-Queries auf lokale DBs | `uvx mcp-server-sqlite --db pfad/datei.db` |
+| **Time** | Uhrzeit/Weltzeit | `uvx mcp-server-time` |
+
+### Sicherheit
+
+MCP-Server bekommen **keine** deiner API-Keys – nur explizit via `env:` gesetzte Variablen. Credential-ähnliche Muster in Fehlermeldungen werden automatisch geschwärzt.
+
+### Aktuelle Installation (diese Umgebung)
+
+```yaml
+# ~/.hermes/config.yaml
+mcp_servers:
+  puppeteer:
+    command: "npx"
+    args: ["-y", "@modelcontextprotocol/server-puppeteer"]
+    timeout: 60
+    connect_timeout: 30
+```
+
+✅ `mcp`-Paket installiert · Chromium vorhanden · Nach `/reset` aktiv
+
+---
+
 ## ⚠️ Wichtige Hinweise
 
 | Problem | Lösung |
@@ -199,5 +268,6 @@ Hermes Workspace bietet ein **Web-UI-Dashboard** für diesen Swarm – Conductor
 
 - [Eigene Skills schreiben](/eigene-skills) – Arbeiteffekte als Skills speichern
 - [Autonomous AI Agents](/skills/autonomous-ai-agents) – Claude Code, Codex & Co.
+- [MCP – Model Context Protocol](#🔌-mcp--model-context-protocol) – Externe Tools anbinden
 - [Tipps & Tricks](/tipps) – Mehr Hermes-Praxis
 - [Konfiguration](/konfiguration) – Alle Config-Optionen
