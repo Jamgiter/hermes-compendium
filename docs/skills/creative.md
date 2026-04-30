@@ -21,19 +21,19 @@
 </div>
 
 <div style="flex: 1; min-width: 140px; padding: 1rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft); text-align: center;">
-    <div style="font-size: 2rem; margin-bottom: 4px;">🖌️</div>
-    <strong>p5js</strong><br>
-    <small style="color: var(--vp-c-text-2);">Generative Kunst & 3D</small>
-    </div>
+<div style="font-size: 2rem; margin-bottom: 4px;">🖌️</div>
+<strong>p5js</strong><br>
+<small style="color: var(--vp-c-text-2);">Generative Kunst & 3D</small>
+</div>
 
-    <div style="flex: 1; min-width: 140px; padding: 1rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft); text-align: center;">
-    <div style="font-size: 2rem; margin-bottom: 4px;">🤖</div>
-    <strong>comfyui</strong><br>
-    <small style="color: var(--vp-c-text-2);">KI-Bild/Video/Audio lokal</small>
-    </div>
+<div style="flex: 1; min-width: 140px; padding: 1rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft); text-align: center;">
+<div style="font-size: 2rem; margin-bottom: 4px;">🤖</div>
+<strong>comfyui</strong><br>
+<small style="color: var(--vp-c-text-2);">KI-Bild/Video/Audio lokal</small>
+</div>
 
-    <div style="flex: 1; min-width: 140px; padding: 1rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft); text-align: center;">
-    <div style="font-size: 2rem; margin-bottom: 4px;">🎥</div>
+<div style="flex: 1; min-width: 140px; padding: 1rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft); text-align: center;">
+<div style="font-size: 2rem; margin-bottom: 4px;">🎥</div>
 <strong>manim-video</strong><br>
 <small style="color: var(--vp-c-text-2);">3Blue1Brown-Animationen</small>
 </div>
@@ -241,7 +241,7 @@ python3 scripts/run_workflow.py \\
 > 3. **Modelle sind groß** – SDXL ~6.5 GB, Flux ~12 GB, gutes Internet nötig
 > 4. **Workflows im API-Format** – Der „Save (API Format)\"-Button im Editor muss verwendet werden
 > 5. **VRAM-Limit** – Flux und Video brauchen ≥12 GB VRAM
-> 6. **Custom Nodes** – Manche Workflows brauchen zusätzliche Nodes (`comfy node install <name>`)
+> 6. **Custom Nodes** – Manche Workflows brauchen zusätzliche Nodes (`comfy node install NAME`)
 
 ---
 
