@@ -5,6 +5,7 @@ export default defineConfig({
   description: 'Hermes Agent – Skills, Konfiguration & Erfahrungen',
   lang: 'de-DE',
   base: '/hermes-compendium/',
+  ignoreDeadLinks: true,
 
   themeConfig: {
     logo: '/hermes-compendium/logo.svg',

@@ -53,6 +53,12 @@ Hermes Agent ist ein autonomes KI-Framework, das in deinem Terminal, auf Messagi
 </div>
 
 <div style="flex: 1; min-width: 200px; padding: 1.5rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft);">
+<h3>🧠 Multi-Agent</h3>
+<p>Parallele Subagenten, Swarm-Orchestrierung und Live-Test mit 6 Workern.</p>
+<a href="/hermes-compendium/multi-agent">Zu den Multi-Agenten →</a>
+</div>
+
+<div style="flex: 1; min-width: 200px; padding: 1.5rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft);">
 <h3>📱 Multi-Plattform</h3>
 <p>Telegram, Discord, WhatsApp, Signal – chatte mit Hermes von überall.</p>
 <a href="/hermes-compendium/multiplattform">Mehr erfahren →</a>
@@ -82,7 +88,7 @@ Hermes Agent ist ein autonomes KI-Framework, das in deinem Terminal, auf Messagi
 | **Multi-Platform Gateway** | Telegram, Discord, WhatsApp, Signal, Email & 10+ Plattformen |
 | **Provider-Agnostic** | Wechsel zwischen 20+ LLM-Providern (OpenRouter, Anthropic, DeepSeek, lokal) |
 | **Cron-Jobs** | Geplante Aufgaben – Hermes arbeitet auch, wenn du schläfst |
-| **Sub-Agenten** | Parallelaufgaben durch delegierte Kinder-Agenten |
+| **Multi-Agent Sub-Agenten** | Parallelaufgaben durch delegierte Kinder-Agenten – [Mehr →](/hermes-compendium/multi-agent) |
 | **Open Source** | Vollständig quelloffen (MIT-Lizenz) auf GitHub |
 
 ---
@@ -97,6 +103,7 @@ Hermes Agent ist ein autonomes KI-Framework, das in deinem Terminal, auf Messagi
 - [x] Konfigurations-Guide
 - [x] Tipps aus der Praxis
 - [x] Multi-Platform Setup (Telegram, Discord)
+- [x] Multi-Agent Orchestrierung (delegate_task + Live-Test)
 - [x] Glossar
 - [x] FAQ
 - [x] Impressum-Seite
