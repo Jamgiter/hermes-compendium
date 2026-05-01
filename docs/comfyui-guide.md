@@ -1,195 +1,105 @@
-# ComfyUI Guide 🎨
+# ComfyUI Skill 🎨
 
-> **ComfyUI** ist eine visuelle Node-basierte Workflow-Engine für generative KI.  
-> Alles läuft **lokal** auf deiner GPU — Bilder, Videos und Audio.  
-> Server: **http://127.0.0.1:8188**
+Der **ComfyUI Skill** ist seit Hermes **v0.12.0** (Curator Release, 30. April 2026) standardmäßig eingebaut. Er ermöglicht Hermes, ComfyUI zu installieren, zu starten und Workflows auszuführen.
 
----
-
-## 📷 Bilder erstellen (Text→Bild)
-
-### Standard Workflow (txt2img)
-
-Ein einfacher SDXL-Workflow besteht aus diesen Nodes:
-
-```
-LoadCheckpoint → CLIPTextEncode (positiv) → KSampler → VAEDecode → SaveImage
-              → CLIPTextEncode (negativ)  ↗
-              → EmptyLatentImage         ↗
-```
-
-### Schritt-für-Schritt im GUI
-
-1. **ComfyUI öffnen** → http://127.0.0.1:8188
-2. Per **Rechtsklick → "Add Node"** die Nodes hinzufügen:
-   - `Add Node → loaders → Load Checkpoint` → SDXL auswählen
-   - `Add Node → conditioning → CLIP Text Encode (Prompt)` → dein Prompt
-   - Nochmal `CLIP Text Encode` für Negative Prompts
-   - `Add Node → latent → Empty Latent Image` → Größe (1024x1024 für SDXL)
-   - `Add Node → sampling → KSampler` → 25 Steps, cfg 7, euler
-   - `Add Node → image → VAE Decode`
-   - `Add Node → image → Save Image`
-3. **Verbinden** — Kabel von Node zu Node ziehen
-4. **Prompt eingeben** — im CLIPTextEncode-Node
-5. **Queue Prompt** klicken (rechts oben) → GPU rechnet
-6. Bild erscheint im **Save Image**-Node
-
-### Prompt-Tipps
-
-| Element | Beispiel |
-|---------|----------|
-| **Stil** | photorealistic, cinematic, oil painting, anime, sketch |
-| **Licht** | golden hour, dramatic lighting, soft diffused light |
-| **Details** | 8k, highly detailed, intricate, sharp focus |
-| **Negativ** | blurry, low quality, distorted, watermark, text |
-
-### Wichtige Parameter
-
-| Parameter | Wert | Effekt |
-|-----------|:----:|--------|
-| **Steps** | 20–30 | Mehr = feinere Details (aber langsamer) |
-| **CFG** | 7–10 | Höher = prompttreuer (aber Overkill ab 15) |
-| **Seed** | beliebig | Gleicher Seed = gleiches Bild |
-| **Size** | 1024×1024 | SDXL-Optimalgröße |
-| **Sampler** | euler / dpmpp_2m | euler = schnell, dpmpp = qualitativ |
-
-> ⚠️ **SDXL** läuft optimal auf **1024×1024**. Andere Größen können zu verzerrten Ergebnissen führen. Für Hoch-/Querformat: 896×1152 oder 1216×832.
+> **Hinweis:** Der Skill ist sehr neu – es gibt noch wenig öffentliche Erfahrungsberichte. Die folgenden Infos basieren auf eigener Nutzung mit ROCm / AMD Radeon.
 
 ---
 
-## 🎵 Audio erstellen
+## 🚀 Funktionen
 
-ComfyUI unterstützt Audiogenerierung durch **MusicGen / AudioCraft** oder ähnliche Audio-Workflows.
+| Feature | Beschreibung |
+|:--------|:-------------|
+| **Installation** | `comfy-cli` + hardware-gated lokale Installation |
+| **Node-Management** | Nodes/Models verwalten |
+| **Workflow-Ausführung** | Workflows laden, Parameter injizieren, ausführen |
+| **Medientypen** | Bilder, Video, Audio |
+| **Cloud/Cloud** | Comfy Cloud (API-Key nötig) oder lokal |
 
-### Nodes für Audio
+---
 
-```
-LoadCheckpoint (Audio-Modell) → TextEncoder → AudioDecoder → SaveAudio
-```
+## ⚙️ Konfiguration
 
-### Voraussetzung
+| Bereich | Details |
+|:--------|:--------|
+| **Version** | ComfyUI v0.20.1 |
+| **GPU** | RX 9060 XT (16 GB VRAM, ROCm 6.3) |
+| **Torch** | 2.9.1+rocm6.3 |
+| **Modelle** | SDXL Base (6,5 GB) – stabil; ACE Step 1.5 Turbo (9,4 GB) – instabil |
+| **Server-Port** | 8188 |
+| **Bildergalerie** | Port 8765 (siehe unten) |
+
+---
+
+## 🖼️ Bildergalerie
+
+Die ComfyUI-Oberfläche ist gewöhnungsbedürftig. Alternative: Eigener Bilder-Viewer:
 
 ```bash
-# MusicGen-Nodes installieren
-comfy node install comfyui-musicgen
+# Starten (im Hintergrund)
+cd ~/comfy/ComfyUI/output && python3 -m http.server 8765
 ```
 
-### Workflow
+Dann im Browser öffnen: **http://127.0.0.1:8765/galerie.html**
 
-1. **Node:** `Load Checkpoint` → ein Audio-Modell laden (z.B. MusicGen)
-2. **Node:** `Text Encoder` → Prompt eingeben (z.B. "melodic synthwave, 90bpm")
-3. **Node:** `Audio Decode` → Parameter: Dauer in Sekunden
-4. **Node:** `Save Audio` → Ausgabe als WAV/MP3
-
-### Audio-Prompt-Beispiele
-
-| Stil | Prompt |
-|------|--------|
-| **Synthwave** | "retro synthwave, driving bassline, 80s vibe, 120bpm" |
-| **Klassik** | "string quartet, melancholic melody, classical" |
-| **Ambient** | "deep ambient soundscape, ethereal pads, slow" |
-| **Lo-Fi** | "lofi hip hop, relaxed beat, vinyl crackle, jazz sample" |
-
-> ℹ️ **Hinweis:** Audio-Workflows brauchen viel VRAM (≥12 GB empfohlen).  
-> Deine RX 9060 XT (16 GB) ist gut geeignet.
+> Die Galerie zeigt alle generierten Bilder als Raster. Einfach draufklicken zum Vergrößern.
 
 ---
 
-## 🎬 Video erstellen
+## ⚠️ Bekannte Probleme (ROCm / RX 9060 XT)
 
-### Option 1: AnimateDiff (Bewegung aus Standbildern)
+### 1. Zweite Generierung crasht den Server
+**Problem:** Nach einer erfolgreichen ersten Bildgenerierung stürzt ComfyUI beim zweiten Prompt ab (Port 8188 nicht mehr erreichbar, "error reconnecting" in der UI).
 
+**Ursache:** Vermutlich VRAM-Fragmentierung oder ROCm-Treiber-Problem auf der RX 9060 XT (16 GB).
+
+**Lösung:** Nach jedem Bild den Server neustarten:
 ```bash
-# AnimateDiff-Node installieren
-comfy node install comfyui-animatediff-evolved
+# PID aus /tmp/comfyui.pid lesen (falls vorhanden)
+kill $(cat /tmp/comfyui.pid)
+# Oder per ps finden
+ps aux | grep "python main.py" | grep -v grep | awk '{print $2}'
+kill <PID>
+
+# Neu starten
+cd ~/comfy/ComfyUI && source .venv/bin/activate && python main.py
 ```
 
-**Workflow:**
-
-```
-LoadCheckpoint → CLIPTextEncode → KSampler → AnimateDiffLoader
-                                      ↓
-                              LatentKeyframeGroup
-                                      ↓
-                              AnimateDiffSampler
-                                      ↓
-                              VAEDecode → SaveVideo (GIF/MP4)
-```
-
-### Option 2: Hunyuan Video (KI-Video aus Text)
-
+**Workaround per API:** Vor dem zweiten Prompt VRAM freigeben:
 ```bash
-comfy node install comfyui-hunyuan-video
+curl -X POST http://127.0.0.1:8188/free \
+  -H "Content-Type: application/json" \
+  -d '{"unload_models":true,"free_memory":true}'
 ```
+Hilft nicht immer, aber manchmal.
 
-**Workflow:**
+### 2. ACE Step 1.5 Turbo (9,4 GB) instabil
+Das große Bildbearbeitungs-Modell lädt oft nicht oder stürzt ab.
 
-```
-LoadHunyuanVideo → TextEncode → KSampler → VAEDecode → SaveVideo
-```
+**Lösung:** SDXL Base (6,5 GB) nutzen – läuft stabil.
 
-### Parameter für Video
+### 3. Serverseitiger Start über Hermes
+Wenn Hermes ComfyUI per `terminal(background=true)` startet, kommt oft kein Output/Log und der Server ist nicht erreichbar. Manueller Start in einem echten Terminal funktioniert zuverlässig.
 
-| Parameter | AnimateDiff | Hunyuan |
-|-----------|:-----------:|:-------:|
-| **Frames** | 16–32 | 49–129 |
-| **Auflösung** | 512×512 | 640×480 |
-| **Steps** | 20–25 | 25–50 |
-| **VRAM** | ~8 GB | ~14 GB |
-| **Dauer** | 1–3 Min | 5–20 Min |
-
-> ⚠️ **Video ist VRAM-intensiv!** AnimateDiff läuft gut auf 16 GB.  
-> Hunyuan Video ist grenzwertig — wenn's crasht, Cloud nutzen.
+### 4. PID-Datei nicht immer vorhanden
+`/tmp/comfyui.pid` existiert nicht nach jedem Start. Alternativ per `ps aux | grep python main.py` die PID finden.
 
 ---
 
-## 📂 Wichtige Ordner
+## 💡 Tipps
 
-| Pfad | Inhalt |
-|:-----|:-------|
-| `~/comfy/ComfyUI/models/checkpoints/` | Deine Modelle (SDXL, Flux, etc.) |
-| `~/comfy/ComfyUI/models/loras/` | LoRA-Adapter |
-| `~/comfy/ComfyUI/models/vae/` | VAE-Dateien |
-| `~/comfy/ComfyUI/output/` | Generierte Bilder/Videos/Audio |
-| `~/comfy/ComfyUI/custom_nodes/` | Installierte Custom Nodes |
-| `/tmp/comfyui.log` | Server-Log |
-
----
-
-## 💾 Workflows speichern & laden
-
-| Aktion | Tastenkürzel / Menü |
-|--------|---------------------|
-| **Workflow speichern** | `Strg + S` → als `.json` speichern |
-| **Workflow laden** | `Strg + O` → `.json` laden |
-| **Als API-Format exportieren** | Menü → "Save (API Format)" |
-| **Default-Workflow laden** | Menü → "Load Default" |
-| **Clear (alles löschen)** | Rechtsklick → "Clear" |
+| Situation | Lösung |
+|:----------|:-------|
+| ComfyUI startet nicht | In echtem Terminal starten, nicht per Hermes-Background |
+| Zweites Bild | Vorher VRAM free + Server neustarten |
+| Bilder ansehen | Galerie auf Port 8765 statt ComfyUI-UI |
+| ACE Step testen | Besser SDXL verwenden |
+| Prompt eingeben | Per API an ComfyUI senden (einfacher als die GUI) |
 
 ---
 
-## 🛠️ Nützliche Tastenkürzel
+## 🔗 Verwandte Seiten
 
-| Kürzel | Funktion |
-|--------|----------|
-| `Strg + S` | Workflow speichern |
-| `Strg + O` | Workflow laden |
-| `Strg + Z` | Rückgängig |
-| `Strg + A` | Alle Nodes markieren |
-| `Entf` | Ausgewählte Nodes löschen |
-| `Strg + Enter` | Queue Prompt (Generation starten) |
-| `Mittlere Maustaste` | Canvas verschieben |
-| `Mausrad` | Zoom |
-| `Doppelklick` | Node-Suche öffnen |
-
----
-
-## ❌ Fehlerbehebung
-
-| Problem | Lösung |
-|---------|--------|
-| **"CUDA out of memory"** | Steps reduzieren, geringere Auflösung, `--lowvram` Flag |
-| **"Module not found"** | Fehlende Custom Nodes installieren: `comfy node install <name>` |
-| **"Checkpoint not found"** | Modell fehlt — `comfy model download --url ...` |
-| **Server startet nicht** | `/tmp/comfyui.log` prüfen, `.venv` evtl. neu mit `comfy install --restore --amd` |
-| **Bild wird schwarz** | Falscher VAE oder Modell nicht geladen — Checkpoint prüfen |
+- [Skills-Übersicht](/skills)
+- [Tipps & Tricks](/tipps)
+- [Troubleshooting](/troubleshooting)
