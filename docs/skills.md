@@ -48,6 +48,7 @@ KI-Kreativwerkzeuge für Bilder, ASCII, Video und Design.
 | **ascii-video** | ASCII-Video: Video/Audio in farbiges ASCII-MP4/GIF konvertieren |
 | **baoyu-comic** | Wissenscomics: Bildung, Biografien, Tutorials |
 | **baoyu-infographic** | Infografiken: 21 Layouts × 21 Stile |
+| **comfyui** | ComfyUI: Installation, Start, Workflow-Ausführung & Verwaltung (built-in seit v0.12) |
 | **claude-design** | Einmalige HTML-Artifakte designen (Landingpages, Desks, Prototypen) |
 | **design-md** | Googles DESIGN.md Token-Spezifikationen schreiben/validieren/exportieren |
 | **excalidraw** | Handgezeichnete Excalidraw-JSON-Diagramme (Architektur, Flow, Sequenz) |
