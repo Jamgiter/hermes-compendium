@@ -16,6 +16,10 @@ Schnellreferenz für die wichtigsten Hermes-Befehle – zum Nachschlagen, wenn's
 | `hermes uninstall` | Hermes deinstallieren |
 | `hermes --help` | Hilfe anzeigen |
 | `hermes version` | Version anzeigen |
+| `hermes -z <prompt>` | One-Shot-Modus (nicht interaktiv) |
+| `hermes curator` | Autonome Skill-Pflege (Curator) |
+| `hermes curator status` | Skills nach Nutzungshäufigkeit anzeigen |
+| `hermes fallback` | Fallback-Provider verwalten |
 
 ---
 
@@ -65,11 +69,17 @@ hermes config get model.default
 
 | Befehl | Beschreibung |
 |--------|-------------|
-| `/skill <name>` | Skill in Session laden |
+|| `/skill <name>` | Skill in Session laden |
+| `/reload-skills` | Skills neu laden (nach Änderungen) |
 | `hermes skills list` | Alle Skills anzeigen |
 | `hermes skills browse` | Skills durchsuchen |
 | `hermes skills install <id>` | Skill installieren |
+| `hermes skills install <url>` | Skill direkt von HTTP(S)-URL installieren |
 | `hermes skills uninstall <name>` | Skill deinstallieren |
+| `hermes skills config` | Skills pro Plattform aktivieren/deaktivieren |
+| `hermes skills check` | Auf Updates prüfen |
+| `hermes skills update` | Veraltete Skills aktualisieren |
+| `hermes skills tap add <repo>` | GitHub-Repo als Skill-Quelle hinzufügen |
 | `hermes -s <name>` | Mit Skill starten |
 
 ### Eigene Skills erstellen
@@ -116,7 +126,7 @@ hermes tools enable vision     # Bild-Analyse
 | `hermes gateway install` | Als Systemdienst installieren |
 | `hermes gateway logs` | Logs anzeigen |
 
-**Unterstützte Plattformen:** Telegram, Discord, Slack, WhatsApp, Signal, Email, Matrix & mehr.
+**Unterstützte Plattformen (19):** Telegram, Discord, Slack, WhatsApp, Signal, Email, Matrix, QQBot, Yuanbao (元宝), Microsoft Teams (Plugin) & mehr.
 
 ---
 
@@ -142,6 +152,12 @@ hermes cron create "30m"
 
 # Mit Skill
 hermes cron create "0 9 * * *" --skill "daily-report"
+
+# In Projektverzeichnis (workdir)
+hermes cron create "0 9 * * *" --workdir ~/projects/myapp
+
+# Jobs verketten (context_from)
+hermes cron create "0 10 * * *" --context-from JOB_ID
 
 # Jobs verwalten
 hermes cron list                 # Alle Jobs anzeigen

@@ -80,7 +80,41 @@ hermes cron create "30m"           # Alle 30 Minuten
 "Lass parallel recherchieren: Agent A sucht nach Werten, Agent B nach Mechaniken"
 ```
 
+### `/steer` – Agenten während der Arbeit lenken
+Seit v0.11 kannst du einen laufenden Agenten **während seiner Aktion** umlenken:
+```
+/steer Vergiss den API-Teil, konzentrier dich aufs Frontend
+```
+Der Hinweis wird nach dem nächsten Tool-Call sichtbar – ohne die laufende Runde zu unterbrechen. Praktisch wenn der Agent in die falsche Richtung läuft.
+
 ---
+
+## 🔌 Shell Hooks & Plugin-System
+
+Seit v0.11 kannst du **Shell-Skripte als Lifecycle-Hooks** einbinden:
+
+```bash
+# ~/.hermes/config.yaml
+hooks:
+  pre_tool_call: ~/scripts/check-before.sh
+  post_tool_call: ~/scripts/log-after.sh
+  on_session_start: ~/scripts/startup.sh
+```
+
+Mögliche Hooks: `pre_tool_call`, `post_tool_call`, `on_session_start`, `on_session_end` uvm.
+
+### Plugin-System (seit v0.11)
+Plugins können eigene Slash-Commands, Tools, Dashboard-Tabs und Gateway-Plattformen mitbringen:
+
+```bash
+hermes plugins list         # Alle Plugins anzeigen
+hermes plugins install <id> # Plugin installieren
+```
+
+**Bundled Plugins:** Spotify, Google Meet, Langfuse (Observability), Achievements
+
+---
+
 
 ## 🚨 Fallstricke (aus Erfahrung)
 

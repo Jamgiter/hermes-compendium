@@ -166,6 +166,31 @@ git commit -m "feat: add feature & fix bug"  # wird als Background interpretiert
 git commit -m "feat: add feature und fix bug"
 ```
 
+### Secret Redaction zerstört Patches (seit v0.12 gefixt)
+
+**Problem (vor v0.12):** Die automatische Secret-Schwärzung hat manchmal harmlose Textstellen (z.B. `sk-...`-ähnliche Muster in Diffs/Patches) zerstört.
+
+**Lösung (seit v0.12):** Secret Redaction ist **standardmäßig AUS**. Falls du sie brauchst:
+```bash
+hermes config set security.redact_secrets true
+```
+
+### Azure Content Filter: `[SYSTEM:` wird geblockt
+
+**Problem:** Bei Azure-gehosteten Modellen wird der Prompt mit `[SYSTEM:`-Markern vom Content Filter abgewürgt.
+
+**Lösung:** Seit v0.12 werden alle `[SYSTEM:` Marker automatisch in `[IMPORTANT:` umbenannt.
+
+### TUI startet langsam
+
+**Problem:** Der TUI braucht sichtbar lange bis zur ersten Eingabe.
+
+**Lösung:** Seit v0.12 ist der TUI-Kaltstart ~57% schneller (lazy agent init, optimierte Imports). Bei älteren Versionen: `hermes update`
+
+### `.env`-Änderungen ohne Neustart übernehmen
+
+Seit v0.12 kannst du in der TUI `/reload` eingeben, um `.env`-Änderungen hot zu reloaden – ohne Session-Neustart.
+
 ### VitePress: Found dead link
 
 **Problem:** `npm run build` schlägt fehl mit „Found dead link".

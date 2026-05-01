@@ -1,6 +1,6 @@
 # Multi-Platform Setup 📱
 
-Hermes Agent kann über **Messaging-Plattformen** mit dir chatten – genau wie im Terminal, aber von überall. Das Gateway ermöglicht den Zugriff per Telegram, Discord, Signal, WhatsApp & Co.
+Hermes Agent kann über **19 Messaging-Plattformen** mit dir chatten – genau wie im Terminal, aber von überall. Das Gateway ermöglicht den Zugriff per Telegram, Discord, Signal, WhatsApp, Yuanbao, QQBot, Teams & Co.
 
 ---
 
@@ -115,13 +115,13 @@ Discord eignet sich für Communities + Sprachchat.
 
 ## 📧 Andere Plattformen
 
-Hermes unterstützt über 10 Plattformen im Gateway:
+Hermes unterstützt 19 Plattformen im Gateway (+ via Plugin-System erweiterbar):
 
 | Plattform | Befehl | Besonderheit |
 |-----------|--------|-------------|
 | **WhatsApp** | `hermes gateway setup` | Business API oder Baileys |
-| **Signal** | `hermes gateway setup` | Signal-CLI nötig |
-| **Slack** | `hermes gateway setup` | Bot-Token aus Slack API |
+| **Signal** | `hermes gateway setup` | Signal-CLI nötig, native Formatierung |
+| **Slack** | `hermes gateway setup` | channel_skill_bindings, strict_mention, native Slash-Commands |
 | **Matrix** | `hermes gateway setup` | Eigenes Matrix-Konto |
 | **Email** | `hermes gateway setup` | IMAP/SMTP-Zugang |
 | **SMS** | `hermes gateway setup` | Twilio-Konto nötig |
@@ -131,6 +131,9 @@ Hermes unterstützt über 10 Plattformen im Gateway:
 | **WeChat (WX)** | `hermes gateway setup` | via WeCom-Kanal |
 | **iMessage** | `hermes gateway setup` | via BlueBubbles |
 | **Home Assistant** | `hermes gateway setup` | HA-Token |
+| **QQBot** (17.) | `hermes gateway setup` | QQ Official API v2, QR-Scan-Setup |
+| **Yuanbao / 元宝** (18.) | `hermes gateway setup` | Tencent-Platform, Text + Media |
+| **Microsoft Teams** (19.) | `hermes gateway setup` | Als Plugin, erste Plugin-Plattform |
 
 ---
 

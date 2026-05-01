@@ -16,7 +16,9 @@ Hermes kann **mehrere Subagenten gleichzeitig starten** – jeder mit eigenem Te
 
 | Feature | Status |
 |---------|:------:|
-| Parallele Subagenten | ✅ bis 6+ |
+|| Parallele Subagenten | ✅ bis 6+ |
+| Orchestrator-Rolle | ✅ Agents die spawnen können |
+| File-Coordination | ✅ geteilter Zustand ohne Konflikte |
 | Isolierter Kontext | ✅ eigenes Terminal |
 | Isolierte Tools | ✅ konfigurierbar |
 | Batch-Modus | ✅ Tasks-Array |
@@ -72,12 +74,20 @@ hermes config set delegation.max_concurrent_children 6
 # Höher? Kein Limit – nur dein RAM/API-Limit zählt
 hermes config set delegation.max_concurrent_children 12
 
-# ⚠️ Config-Änderung braucht Session-Neustart (/reset)
+# Orchestrator-Tiefe (max_spawn_depth)
+hermes config set delegation.max_spawn_depth 2  # 1 = flach (Default), 2+ = verschachtelt
+
+# Timeout pro Subagent
+hermes config set delegation.child_timeout_seconds 600  # Default seit v0.12
+
+# ⚠️ Config-Änderung (max_concurrent_children/max_spawn_depth) braucht NEUSTART
+# Nicht nur /reset – exit und neu starten!
 ```
 
-**Standard:** 3  
-**Aktuell (diese Umgebung):** 6  
-**Maximal:** kein hartes Limit – abhängig von API-Rate-Limits und Systemressourcen
+**Standard:** `max_concurrent_children: 3`, `max_spawn_depth: 1`  
+**Aktuell (diese Umgebung):** 6 / 2  
+**`child_timeout_seconds`:** 600 (Default seit v0.12.0)  
+**`max_spawn_depth`:** 1 = nur eine Ebene (Subagenten können nicht weiter delegieren). 2+ = verschachtelte Delegation erlaubt. Default ist flach.
 
 ### Toolsets pro Subagent
 
@@ -258,9 +268,11 @@ mcp_servers:
 
 ### Besonderheiten
 
-- **Orchestrator-Rolle:** Subagenten können per `role='orchestrator'` selbst weiter delegieren (via `delegation.max_spawn_depth`)
-- **ACP-Spawn:** Subagenten können als Claude Code / Codex gestartet werden (`acp_command="claude"`)
-- **Kein Memory:** Subagenten haben **keinen Zugriff** auf dein Memory – alles via `context` übergeben
+- **Orchestrator-Rolle:** Subagenten können per role=orchestrator selbst weiter delegieren -> verschachtelte Worker-Baeume moeglich. Die Tiefe wird via `delegation.max_spawn_depth` gesteuert (Default 1 = keine Verschachtelung)
+- **File-Coordination:** Seit v0.11 teilen sich parallele Subagenten einen koordinierten Dateisystem-Zustand - sie ueberschreiben sich nicht gegenseitig. Ideal fuer parallele Edits an verschiedenen Dateien im selben Projekt.
+- **ACP-Spawn:** Subagenten koennen als Claude Code / Codex gestartet werden (`acp_command="claude"`)
+- **Kein Memory:** Subagenten haben **keinen Zugriff** auf dein Memory - alles via `context` uebergeben
+- **Timeout:** Seit v0.12.0 ist `child_timeout_seconds` standardmaessig 600s (vorher kuerzer). Bei Timeout mit 0 API-Calls gibt es einen Diagnose-Dump.
 
 ---
 

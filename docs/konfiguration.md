@@ -42,6 +42,14 @@ Unterstützte Provider:
 | **AI Gateway (Vercel)** | API-Key | `AI_GATEWAY_API_KEY` |
 | **OpenCode Zen** | API-Key | `OPENCODE_ZEN_API_KEY` |
 | **OpenCode Go** | API-Key | `OPENCODE_GO_API_KEY` |
+|| **AWS Bedrock** | IAM/Credentials | `AWS_ACCESS_KEY_ID` + `AWS_SECRET_ACCESS_KEY` |
+| **LM Studio** | Automatisch | Lokaler Server (native Provider-Auth) |
+| **NVIDIA NIM** | API-Key | `NVIDIA_NIM_API_KEY` |
+| **Arcee AI** | API-Key | `ARCEE_API_KEY` |
+| **Step Plan** | API-Key | `STEP_API_KEY` |
+| **GMI Cloud** | API-Key | `GMI_CLOUD_API_KEY` |
+| **Azure AI Foundry** | API-Key | Automatische Erkennung |
+| **Vercel AI Gateway** | API-Key | `AI_GATEWAY_API_KEY` (mit Pricing + Dynamic Discovery) |
 | **Qwen OAuth** | OAuth | `hermes login --provider qwen-oauth` |
 | **Custom Endpoint** | Config | `model.base_url` + `.env` |
 
@@ -190,4 +198,29 @@ delegation:
   model: ""
   provider: ""
   max_iterations: 50
+  max_concurrent_children: 3     # Parallele Subagenten (Default 3)
+  max_spawn_depth: 1             # Orchestrator-Tiefe (1 = keine weiteren Children)
+  child_timeout_seconds: 600     # Timeout pro Subagent
+
+prompt_caching:
+  cache_ttl: 300                 # Cache-TTL in Sekunden (5 Min, bis 1h möglich)
+
+auxiliary:
+  curator:
+    enabled: true                # Curator (autonome Skill-Pflege)
+  vision:
+    provider: auto               # Separates Modell für Vision
+  compression:
+    provider: auto               # Separates Modell für Compression
+
+security:
+  redact_secrets: false          # Seit v0.12 standardmäßig AUS (früher: false)
+  # Aktivieren: hermes config set security.redact_secrets true
+
+approvals:
+  mode: manual                   # manual (Standard) | smart | off
+
+tts:
+  provider: edge                 # edge, elevenlabs, openai, minimax, mistral, piper
+  # TTS-Provider sind pluggbar via tts.providers.<name>
 ```
