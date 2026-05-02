@@ -2,6 +2,13 @@
 
 Schnellreferenz für die wichtigsten Hermes-Befehle – zum Nachschlagen, wenn's schnell gehen muss.
 
+<div style="text-align:center;margin:20px 0">
+  <a href="/hermes-compendium/hermes-cheatsheet.html" target="_blank" style="display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;border-radius:10px;text-decoration:none;font-weight:600;font-size:15px;box-shadow:0 4px 14px rgba(79,70,229,.35);transition:transform .15s,box-shadow .15s" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
+    📋 <span>Alles auf einen Blick <span style="font-weight:400;opacity:.8">↗</span></span>
+  </a>
+  <div style="font-size:12px;color:#6b7280;margin-top:6px">Pop-up mit allen Kommandos – druckbar, kein Scrollen nötig</div>
+</div>
+
 ---
 
 ## 🚀 Basiskommandos
