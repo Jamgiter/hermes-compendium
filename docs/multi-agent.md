@@ -189,9 +189,9 @@ Hermes Workspace bietet ein **Web-UI-Dashboard** für diesen Swarm – Conductor
 
 ## 🔌 MCP – Model Context Protocol
 
-MCP ist ein offener Standard, um Hermes mit **externen Werkzeugen** zu erweitern – wie USB-C für AI-Tools. Während `delegate_task` mehr **Gehirne** parallel schaltet, gibt MCP einem Gehirn **mehr Werkzeuge**.
+MCP ist ein offener Standard, um Hermes mit **externen Werkzeugen** zu erweitern – wie USB-C für AI-Tools.
 
-### MCP vs. delegate_task
+📄 **[Ausführlicher MCP-Guide →](/hermes-compendium/mcp)**
 
 | | `delegate_task` | MCP |
 |--|:--:|:--:|
@@ -201,40 +201,7 @@ MCP ist ein offener Standard, um Hermes mit **externen Werkzeugen** zu erweitern
 | **Isolation** | Völlig unabhängig | Läuft in meinem Prozess |
 | **Ideal für** | Komplexe Parallelarbeit | Spezial-Tools (DB, GitHub, Browser) |
 
-### Installation
-
-```bash
-pip install mcp              # MCP-Paket für Hermes
-```
-
-Dann Server in `~/.hermes/config.yaml` eintragen:
-
-```yaml
-mcp_servers:
-  dateiname:
-    command: "npx"
-    args: ["-y", "@modelcontextprotocol/server-filesystem", "/pfad"]
-  github:
-    command: "npx"
-    args: ["-y", "@modelcontextprotocol/server-github"]
-    env:
-      GITHUB_PERSONAL_ACCESS_TOKEN: "ghp_..."
-  puppeteer:
-    command: "npx"
-    args: ["-y", "@modelcontextprotocol/server-puppeteer"]
-```
-
-Nach `/reset` entdeckt Hermes die Server automatisch. Die Tools erscheinen als `mcp_{server}_{tool}` – z.B. `mcp_puppeteer_screenshot`.
-
-### Welche MCP-Server lohnen sich?
-
-| Server | Nutzen | Befehl |
-|--------|--------|--------|
-| **Puppeteer** | Browser-Screenshots, Seiten analysieren | `npx @modelcontextprotocol/server-puppeteer` |
-| **Filesystem** | Erweiterter Dateizugriff | `npx @modelcontextprotocol/server-filesystem /pfad` |
-| **GitHub** | Issues, PRs, Repos ohne `gh` CLI | `npx @modelcontextprotocol/server-github` |
-| **Sqlite** | Direkte SQL-Queries auf lokale DBs | `uvx mcp-server-sqlite --db pfad/datei.db` |
-| **Time** | Uhrzeit/Weltzeit | `uvx mcp-server-time` |
+Mehr zu Installation, Konfiguration und Sicherheit auf der **[MCP-Seite](/hermes-compendium/mcp)**.
 
 ### Sicherheit
 

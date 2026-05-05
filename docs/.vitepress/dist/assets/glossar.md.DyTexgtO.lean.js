@@ -1,1 +1,0 @@
-import{_ as a,o as r,c as t,ag as n}from"./chunks/framework.5wcOFaQl.js";const m=JSON.parse('{"title":"Glossar 📖","description":"","frontmatter":{},"headers":[],"relativePath":"glossar.md","filePath":"glossar.md"}'),i={name:"glossar.md"};function o(l,e,h,s,d,u){return r(),t("div",null,[...e[0]||(e[0]=[n("",178)])])}const b=a(i,[["render",o]]);export{m as __pageData,b as default};

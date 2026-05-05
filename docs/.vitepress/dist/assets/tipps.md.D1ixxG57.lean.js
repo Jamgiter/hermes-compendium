@@ -1,1 +1,0 @@
-import{_ as e,o as i,c as a,ag as n}from"./chunks/framework.5wcOFaQl.js";const g=JSON.parse('{"title":"Tipps & Tricks 🧠","description":"","frontmatter":{},"headers":[],"relativePath":"tipps.md","filePath":"tipps.md"}'),t={name:"tipps.md"};function h(l,s,r,p,o,k){return i(),a("div",null,[...s[0]||(s[0]=[n("",85)])])}const c=e(t,[["render",h]]);export{g as __pageData,c as default};

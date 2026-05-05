@@ -53,6 +53,48 @@ Hermes Agent ist ein autonomes KI-Framework, das in deinem Terminal, auf Messagi
 </div>
 
 <div style="flex: 1; min-width: 200px; padding: 1.5rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft);">
+<h3>🔌 Plugin-System</h3>
+<p>Plugins installieren, eigene schreiben & Shell Hooks – Erweiterungen für Hermes.</p>
+<a href="/hermes-compendium/plugins">Zu den Plugins →</a>
+</div>
+
+<div style="flex: 1; min-width: 200px; padding: 1.5rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft);">
+<h3>🗣️ Voice & TTS</h3>
+<p>Text-to-Speech, Speech-to-Text, Voice Mode & Discord Voice – Hermes spricht mit dir.</p>
+<a href="/hermes-compendium/voice-tts">Zu Voice & TTS →</a>
+</div>
+
+<div style="flex: 1; min-width: 200px; padding: 1.5rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft);">
+<h3>⏰ Cron-Jobs</h3>
+<p>Geplante Aufgaben, Job-Verkettung, Workdir, Script-Modus & Watchdogs.</p>
+<a href="/hermes-compendium/cron-jobs">Zu Cron-Jobs →</a>
+</div>
+
+<div style="flex: 1; min-width: 200px; padding: 1.5rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft);">
+<h3>🔌 MCP</h3>
+<p>Model Context Protocol – externe Tools via MCP-Server (Puppeteer, GitHub, SQLite uvm.).</p>
+<a href="/hermes-compendium/mcp">Zu MCP →</a>
+</div>
+
+<div style="flex: 1; min-width: 200px; padding: 1.5rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft);">
+<h3>🔐 Secrets & Sicherheit</h3>
+<p>API-Keys, Credential Pools, Secret Redaction & Exfiltration-Blocking.</p>
+<a href="/hermes-compendium/secrets">Zu Secrets →</a>
+</div>
+
+<div style="flex: 1; min-width: 200px; padding: 1.5rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft);">
+<h3>🏗️ Deployment</h3>
+<p>Gateway, systemd, Docker, Profile, ACP Server – Hermes im Dauerbetrieb.</p>
+<a href="/hermes-compendium/deployment">Zum Deployment →</a>
+</div>
+
+<div style="flex: 1; min-width: 200px; padding: 1.5rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft);">
+<h3>🧠 Memory</h3>
+<p>Langzeitgedächtnis – User-Profil, Agent-Notizen & Best Practices.</p>
+<a href="/hermes-compendium/memory">Zum Memory-Guide →</a>
+</div>
+
+<div style="flex: 1; min-width: 200px; padding: 1.5rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft);">
 <h3>🧠 Multi-Agent</h3>
 <p>Parallele Subagenten, Swarm-Orchestrierung und Live-Test mit 6 Workern.</p>
 <a href="/hermes-compendium/multi-agent">Zu den Multi-Agenten →</a>
@@ -74,6 +116,12 @@ Hermes Agent ist ein autonomes KI-Framework, das in deinem Terminal, auf Messagi
 <h3>❓ FAQ</h3>
 <p>Häufige Fragen zu Installation, Nutzung, Plattformen und Fehlern.</p>
 <a href="/hermes-compendium/faq">Zur FAQ →</a>
+</div>
+
+<div style="flex: 1; min-width: 200px; padding: 1.5rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft);">
+<h3>📋 Changelog</h3>
+<p>Versionshistorie von v0.2.0 bis v0.12.0 – alle Releases mit Highlights.</p>
+<a href="/hermes-compendium/changelog">Zum Changelog →</a>
 </div>
 
 </div>
@@ -108,7 +156,7 @@ Hermes Agent ist ein autonomes KI-Framework, das in deinem Terminal, auf Messagi
 - [x] FAQ
 - [x] Impressum-Seite
 - [x] Detaillierte Skill-Beschreibungen
-- [ ] Changelog / Versionshistorie
+- [x] Changelog / Versionshistorie
 
 ---
 

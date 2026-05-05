@@ -1,1 +1,0 @@
-import{_ as s,o as a,c as i,ag as n}from"./chunks/framework.5wcOFaQl.js";const k=JSON.parse('{"title":"FAQ ❓","description":"","frontmatter":{},"headers":[],"relativePath":"faq.md","filePath":"faq.md"}'),t={name:"faq.md"};function h(r,e,l,o,p,d){return a(),i("div",null,[...e[0]||(e[0]=[n("",86)])])}const u=s(t,[["render",h]]);export{k as __pageData,u as default};
