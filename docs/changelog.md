@@ -2,7 +2,38 @@
 
 Alle Releases von Hermes Agent seit der ersten öffentlichen Version – chronologisch absteigend.
 
-> **Aktuelle Version:** v0.12.0 (v2026.4.30) — *The Curator Release*
+> **Aktuelle Version:** v0.13.0 (v2026.5.7) — *The Tenacity Release*
+
+---
+
+## v0.13.0 — The Tenacity Release 💪
+<span style="color: var(--vp-c-text-2); font-size: 0.9em;">v2026.5.7 · 7. Mai 2026 · 864 Commits · 588 PRs · 295 Contributors</span>
+
+> Hermes beendet, was es beginnt. Multi-Agent-Kanban, persistente Ziele (`/goal`), Session-Durabilität, Video-Analyse, Voice-Cloning, 7 Locales und die 20. Plattform.
+
+- **Multi-Agent Kanban** – Durable Collaboration Board: Heartbeat, Reclaim, Zombie-Erkennung, Halluzinations-Gate, Per-Task-Retries, Dashboard mit Workspace-Steuerung
+- **`/goal` – Persistent Cross-Turn Goals** – Der Ralph-Loop: Agent bleibt über mehrere Turns hinweg auf ein Ziel fixiert
+- **`video_analyze`** – Native Video-Analyse über Gemini & kompatible Multimodal-Modelle
+- **xAI Custom Voices** – Voice-Cloning als TTS-Provider
+- **7 i18n Locales** – Statische Nachrichten in Chinesisch, Japanisch, Deutsch, Spanisch, Französisch, Ukrainisch und Türkisch
+- **Google Chat** – 20. Messaging-Plattform + generische Platform-Plugin-Hooks
+- **Session Auto-Resume** – Gateway überlebt Neustarts; unterbrochene Sessions werden automatisch fortgesetzt
+- **Sicherheitswelle – 8 P0-Schließungen** – Redaktion standardmäßig aktiv, Discord Guild-Scoping, WhatsApp strangers default-reject, TOCTOU-Schließungen, Cron-Prompt-Injection-Scan u.a.
+- **Checkpoints v2** – State-Persistence mit echtem Pruning, Disk-Guardrails, keine Shadow-Repos mehr
+- **Post-Write Delta Lint** – `write_file` + `patch` jetzt mit Syntax-Prüfung (Python, JSON, YAML, TOML)
+- **`no_agent` Cron Mode** – Script-only Watchdog: Leeres stdout = still, sonst verbatim delivery
+- **Provider als Plugins** – `ProviderProfile` ABC mit `plugins/model-providers/`-Verzeichnis
+- **Curator Subcommands** – `hermes curator archive`, `prune`, `list-archived` + synchroner manueller Run
+- **ACP `/steer` und `/queue`** – Agent per Slash-Befehl steuern oder Follow-ups von Zed/VS Code/JetBrains aus queue-en
+- **TUI-Glow-Up** – `/model`-Picker mit Inline-Auth, kollabierbare Banner-Sektionen, Kompressionszähler
+- **Dashboard Plugins & Profiles** – Plugin-Verwaltungsseite, Profile-Management, sortierbare Tabellen, `default-large`-Theme
+- **SearXNG + Split Web Tools** – Native Such-Backend + per-capability Backend-Auswahl
+- **OpenRouter Response Caching** – Explizite Cache-Steuerung für unterstützte Modelle
+- **`[[as_document]]` Directive** – Skills können Gateway-Ausgabe als Dokument erzwingen
+- **`transform_llm_output` Plugin Hook** – LLM-Output vor Conversation-Insertion filtern/umformen
+- **6 neue Optional Skills** – Shopify, here.now, shop-app, Anthropic Financial-Services, kanban-video-orchestrator, searxng-search
+- **Neue Modelle** – `deepseek/deepseek-v4-pro`, `x-ai/grok-4.3`, `openrouter/owl-alpha` (free), `tencent/hy3-preview`
+- **100 neue CLI Startup Tips** – Cron, Kanban, Curator, Plugins, lesser-known Flags
 
 ---
 
@@ -188,4 +219,4 @@ Was als Nächstes kommt? Die Hermes-Entwicklung ist rasant – neue Releases ers
 - Performance-Optimierungen
 - Neue Plattform-Adapter
 
-> *Stand: April/Mai 2026. Dieses Compendium wird mit jedem neuen Release aktualisiert.*
+> *Stand: Mai 2026. Dieses Compendium wird mit jedem neuen Release aktualisiert.*
