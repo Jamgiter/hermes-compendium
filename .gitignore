@@ -4,3 +4,10 @@ node_modules
 *.log
 .DS_Store
 
+
+# Build artefacts
+docs/.vitepress/cache/
+docs/.vitepress/dist/
+.vitepress/cache/
+.vitepress/dist/
+node_modules/
