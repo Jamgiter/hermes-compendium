@@ -45,7 +45,7 @@ hermes config env-path
 
 ### `.env`-Einträge im Cheatsheet
 
-Die wichtigsten Umgebungsvariablen findest du im **[Cheatsheet](/hermes-compendium/cheatsheet#api-keys-env)**.
+Die wichtigsten Umgebungsvariablen findest du im **[Cheatsheet](/cheatsheet#api-keys-env)**.
 
 ---
 

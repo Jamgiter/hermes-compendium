@@ -136,7 +136,7 @@ Hermes Agent ist ein autonomes KI-Framework, das in deinem Terminal, auf Messagi
 | **Multi-Platform Gateway** | Telegram, Discord, WhatsApp, Signal, Email & 10+ Plattformen |
 | **Provider-Agnostic** | Wechsel zwischen 20+ LLM-Providern (OpenRouter, Anthropic, DeepSeek, lokal) |
 | **Cron-Jobs** | Geplante Aufgaben – Hermes arbeitet auch, wenn du schläfst |
-| **Multi-Agent Sub-Agenten** | Parallelaufgaben durch delegierte Kinder-Agenten – [Mehr →](/hermes-compendium/multi-agent) |
+| **Multi-Agent Sub-Agenten** | Parallelaufgaben durch delegierte Kinder-Agenten – [Mehr →](/multi-agent) |
 | **Open Source** | Vollständig quelloffen (MIT-Lizenz) auf GitHub |
 
 ---
