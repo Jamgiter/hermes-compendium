@@ -11,13 +11,13 @@ export default defineConfig({
     logo: '/hermes-compendium/logo.svg',
 
     nav: [
-      { text: 'Start', link: '/' },
-      { text: 'Einführung', link: '/einfuehrung' },
+      { text: '🏠 Start', link: '/' },
+      { text: '📖 Einführung', link: '/einfuehrung' },
       {
-        text: 'Skills',
+        text: '📚 Skills',
         items: [
-          { text: 'Übersicht', link: '/skills' },
-          { text: 'Eigene Skills schreiben', link: '/eigene-skills' },
+          { text: '📋 Übersicht', link: '/skills' },
+          { text: '🛠️ Eigene Skills schreiben', link: '/eigene-skills' },
           { text: '—', link: '' },
           { text: '🚀 Autonomous AI Agents', link: '/skills/autonomous-ai-agents' },
           { text: '🎨 Creative', link: '/skills/creative' },
@@ -32,7 +32,7 @@ export default defineConfig({
       },
       { text: '⚡ Cheatsheet', link: '/cheatsheet' },
       { text: '🔧 Troubleshooting', link: '/troubleshooting' },
-      { text: 'Konfiguration', link: '/konfiguration' },
+      { text: '⚙️ Konfiguration', link: '/konfiguration' },
       {
         text: '📚 Guides',
         items: [
