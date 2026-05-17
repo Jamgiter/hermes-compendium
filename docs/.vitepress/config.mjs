@@ -37,6 +37,7 @@ export default defineConfig({
         text: '📚 Guides',
         items: [
           { text: '💡 Tipps & Tricks', link: '/tipps' },
+          { text: '🗺️ Hermes Atlas', link: '/hermes-atlas' },
           { text: '🔌 Plugin-System', link: '/plugins' },
           { text: '🗣️ Voice & TTS', link: '/voice-tts' },
           { text: '⏰ Cron-Jobs', link: '/cron-jobs' },
@@ -84,6 +85,7 @@ export default defineConfig({
         },
         { text: '⚙️ Konfiguration', link: '/konfiguration' },
         { text: '💡 Tipps & Tricks', link: '/tipps' },
+        { text: '🗺️ Hermes Atlas', link: '/hermes-atlas' },
         { text: '🔌 Plugin-System', link: '/plugins' },
         { text: '🗣️ Voice & TTS', link: '/voice-tts' },
         { text: '⏰ Cron-Jobs', link: '/cron-jobs' },
