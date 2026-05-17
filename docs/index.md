@@ -120,7 +120,7 @@ Hermes Agent ist ein autonomes KI-Framework, das in deinem Terminal, auf Messagi
 
 <div style="flex: 1; min-width: 200px; padding: 1.5rem; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-soft);">
 <h3>📋 Changelog</h3>
-<p>Versionshistorie von v0.2.0 bis v0.13.0 – alle Releases mit Highlights.</p>
+<p>Versionshistorie von v0.2.0 bis v0.14.0 – alle Releases mit Highlights.</p>
 <a href="/hermes-compendium/changelog">Zum Changelog →</a>
 </div>
 

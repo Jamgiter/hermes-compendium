@@ -2,7 +2,38 @@
 
 Alle Releases von Hermes Agent seit der ersten öffentlichen Version – chronologisch absteigend.
 
-> **Aktuelle Version:** v0.13.0 (v2026.5.7) — *The Tenacity Release*
+> **Aktuelle Version:** v0.14.0 (v2026.5.16) — *The Foundation Release*
+
+---
+
+## v0.14.0 — The Foundation Release 🏛️
+<span style="color: var(--vp-c-text-2); font-size: 0.9em;">v2026.5.16 · 16. Mai 2026 · 808 Commits · 633 PRs · 545 Issues closed (12 P0, 50 P1) · 215 Contributors</span>
+
+> Hermes installs and runs anywhere. SuperGrok OAuth, OpenAI-kompatibler Local Proxy, native `x_search`, 2 neue Plattformen, Windows-Beta, und die größte Debloating-Welle der Projektgeschichte.
+
+- **SuperGrok OAuth Provider** — xAI-Login direkt in Hermes, kein API-Key nötig; grok-4.3 auf 1M Token Kontextfenster hochgestuft
+- **OpenAI-kompatibler Local Proxy** — `hermes proxy` verwandelt jeden OAuth-Provider (Claude Pro, ChatGPT Pro, SuperGrok) in einen OpenAI-Endpoint für Codex CLI, Aider, Cline, Continue uvm.
+- **`x_search` – natives X/Twitter-Tool** — Timeline durchsuchen, Threads finden, Posts abrufen – direkt aus dem Chat, mit OAuth oder API-Key
+- **Microsoft Teams End-to-End** — Graph-Auth + Webhook-Listener + Pipeline-Runtime + Outbound-Delivery vollständig verdrahtet
+- **Debloating-Welle** — Heavy Backends jetzt lazy-install (on first use), `[all]`-Extras entfernt, tiered Install mit Fallback bei Plattform-Inkompatibilität
+- **`pip install hermes-agent`** — Vollständiger PyPI-Support
+- **Cold-Start −19 Sekunden** — Spürbar schnellerer `hermes`-Launch
+- **Browser CDP 180× schneller** — Chrome DevTools Protocol massiv optimiert
+- **Windows Native Support (Beta)** — Erstmals natives Windows ohne WSL
+- **LINE + SimpleX Chat** — 2 neue Plattformen, insgesamt **22 Plattformen**
+- **Cross-Session Claude Prompt Caching** — 1-stündiger Cache über Sessions hinweg
+- **`/handoff`** — Live-Session-Transfer zwischen Hermes-Instanzen
+- **Native Button UI für `clarify`** — Telegram & Discord: Buttons statt Tipparbeit
+- **Discord Channel History Backfill** — Nachrichtenhistorie nachholen
+- **LSP Semantic Diagnostics** — Automatische Syntax-Checks bei jedem `write_file`/`patch`
+- **`video_generate` – Unified Tool** — Pluggables Video-Generation-Tool (ComfyUI, SVD u.a.)
+- **`computer_use` cua-driver** — Funktioniert jetzt auch mit Non-Anthropic-Providern
+- **Clickable URLs** — Hyperlinks in jedem Terminal (OSC-8)
+- **Zed ACP Registry** — Integration via `uvx`
+- **9 neue Optional Skills** — Erweiterung des Skill-Ökosystems
+- **OpenRouter Pareto Code Router** — Intelligentes Code-Model-Routing
+- **huggingface/skills als Trusted Default Tap** — Skills direkt von HuggingFace
+- **12 P0 + 50 P1 Security Closures** — Größte Sicherheitswelle seit v0.13.0
 
 ---
 
@@ -219,4 +250,4 @@ Was als Nächstes kommt? Die Hermes-Entwicklung ist rasant – neue Releases ers
 - Performance-Optimierungen
 - Neue Plattform-Adapter
 
-> *Stand: Mai 2026. Dieses Compendium wird mit jedem neuen Release aktualisiert.*
+> *Stand: Mai 2026 (v0.14.0). Dieses Compendium wird mit jedem neuen Release aktualisiert.*
