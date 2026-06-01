@@ -2,7 +2,55 @@
 
 Alle Releases von Hermes Agent seit der ersten öffentlichen Version – chronologisch absteigend.
 
-> **Aktuelle Version:** v0.14.0 (v2026.5.16) — *The Foundation Release*
+> **Aktuelle Version:** v0.15.1 (v2026.5.29) — *The Auth Release*
+
+---
+
+## v0.15.1 — Patch Release 🔧
+<span style="color: var(--vp-c-text-2); font-size: 0.9em;">v2026.5.29 · 29. Mai 2026</span>
+
+- **Kanban Image Attachments** — Worker Vision kann Bilder aus Task-Bodies sehen
+- **Memory Context Exposure** — Abgeschlossene Turns teilen Message-Context mit Memory-Providern
+- **Skills Catalog 23× größer** — Vollständiger skills.sh-Sitemap-Import (858 → 19.932 Skills)
+- **Model Picker Unified** — `/model` und `hermes model` zeigen identische Listen + Disk-Cache
+- **Weitere Fixes** — nix dependency hashes, MCP npx-Auflösung, TUI-Modell-Picker, Dashboard Auth-Race, Kanban SIGTERM
+
+---
+
+## v0.15.0 — The Auth Release 🔐
+<span style="color: var(--vp-c-text-2); font-size: 0.9em;">v2026.5.28 · 28. Mai 2026 · 1.304 Commits · 500+ PRs</span>
+
+> Dashboard OAuth, s6-Container-Supervision, Bitwarden Secrets Manager, MCP Catalog, Promptware-Abwehr, Docker Node 22 LTS.
+
+- **Dashboard OAuth Gate** — Vollständiges Auth-System: Login-Seite, SPA AuthWidget, WS-Ticket-Auth, PKCE-Cookies, Audit-Log, konfigurierbar über `dashboard.oauth` in config.yaml
+- **Nous OAuth Plugin** — Dashboard Auth Provider für Nous Portal (Portal-URL, Token-Validierung, Fail-Closed)
+- **s6-overlay als PID 1** — Docker-Image auf s6-overlay migriert (tini ersetzt); S6ServiceManager für Gateway-Supervision; auto-redirect `gateway run` in supervised mode
+- **Bitwarden Secrets Manager** — Lazy-install (`bws`) CLI-Integration, Credential-Quellen-Labeling, EU Cloud + Self-Hosted Support
+- **MCP Catalog** — Nous-approved MCP-Server-Liste mit interaktivem Picker + `hermes mcp` Management
+- **MCP mTLS** — TLS-Client-Zertifikate für HTTP/SSE MCP-Server
+- **MCP OAuth Headless** — Stdin-Paste-Back für Browser-lose OAuth-Flows + Skip-Option für nicht benötigte Auths
+- **Promptware Defense** — Shared Threat Patterns, Memory-Load-Scan, Tool-Result-Delimiters
+- **Supply-Chain Audit** — On-Demand-Sicherheitsprüfung über OSV.dev
+- **STT/TTS Plugin Hooks** — `register_transcription_provider()` und `register_tts_provider()` für Community-Provider
+- **Skills Hub Watchdog** — Health Checks + Freshness Badges + automatischer Cron-Job für veraltete Skills
+- **Claude Opus 4.8** — Neues Top-Modell (`claude-opus-4.8` + `claude-opus-4.8-fast`)
+- **Qwen 3.7 Max** — Neues Alibaba-Modell via OpenCode Go + Katalog
+- **GPT-5.5 Pro** — OpenAI API Provider Option + Live `/v1/models` Fetch
+- **Image Gen Krea Provider** — Krea 2 Medium + Large als Plugin-Provider + FAL-Katalog
+- **API Server** — `GET /v1/skills` + `GET /v1/toolsets` Endpunkte, Session-Steuerung
+- **Kanban Bulk Promote** — `--ids` Flag für massenhaftes Ready-Promoten + Fortschrittsanzeige
+- **TUI Session Orchestrator** — Sitzungsübergreifende Steuerung + Background-Process-Zähler
+- **TUI Responsive Banners** — Dynamisch ein-/ausklappbare Banner-Sektionen
+- **TUI Mouse Tracking** — DEC-Modus-Presets für Maus-Steuerung
+- **Nix Package Variants** — `#messaging` und `#full` für selektive Installation
+- **OpenRouter Sticky Routing** — Session-ID in `extra_body` für konsistentes Model-Routing
+- **Smart Patches** — Einzugserhaltung, CRLF-Erhaltung, per-File-Fehler-Eskalation
+- **Docker Windows Desktop** — Kompatibles `docker-compose.yml` für Windows Docker Desktop
+- **Docker Node 22 LTS** — Multi-Stage-Build Upgrade
+- **Honcho Runtime Peer Mapping** — Identity-Mapping-Wizard + Runtime-Resolution
+- **Configurable Paste Collapse** — Anpassbare Schwellwerte für Paste-Verdichtung in TUI + CLI
+- **xAI TTS Speech Tags** — Optionale Pausen via Speech-Tags
+- **xAI OAuth Migration CLI** — `hermes migrate xai` mit ruamel round-trip YAML-Rewrite
 
 ---
 

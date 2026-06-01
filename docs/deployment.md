@@ -197,7 +197,7 @@ hermes acp --transport zed
 hermes acp --transport jetbrains
 ```
 
-Siehe auch: **[Editor-Integration im Cheatsheet](/cheatsheet#editor-integration)**
+Siehe auch: **[Editor-Integration im Cheatsheet](/hermes-compendium/cheatsheet#editor-integration)**
 
 ---
 

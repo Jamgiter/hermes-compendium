@@ -191,7 +191,7 @@ Hermes Workspace bietet ein **Web-UI-Dashboard** für diesen Swarm – Conductor
 
 MCP ist ein offener Standard, um Hermes mit **externen Werkzeugen** zu erweitern – wie USB-C für AI-Tools.
 
-📄 **[Ausführlicher MCP-Guide →](/mcp)**
+📄 **[Ausführlicher MCP-Guide →](/hermes-compendium/mcp)**
 
 | | `delegate_task` | MCP |
 |--|:--:|:--:|
@@ -201,7 +201,7 @@ MCP ist ein offener Standard, um Hermes mit **externen Werkzeugen** zu erweitern
 | **Isolation** | Völlig unabhängig | Läuft in meinem Prozess |
 | **Ideal für** | Komplexe Parallelarbeit | Spezial-Tools (DB, GitHub, Browser) |
 
-Mehr zu Installation, Konfiguration und Sicherheit auf der **[MCP-Seite](/mcp)**.
+Mehr zu Installation, Konfiguration und Sicherheit auf der **[MCP-Seite](/hermes-compendium/mcp)**.
 
 ### Sicherheit
 
