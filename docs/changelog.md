@@ -2,7 +2,37 @@
 
 Alle Releases von Hermes Agent seit der ersten öffentlichen Version – chronologisch absteigend.
 
-> **Aktuelle Version:** v0.15.1 (v2026.5.29) — *The Auth Release*
+> **Aktuelle Version:** v0.16.0 (v2026.6.5) — *The Surface Release*
+
+---
+
+## v0.16.0 — The Surface Release 🖥️
+<span style="color: var(--vp-c-text-2); font-size: 0.9em;">v2026.6.5 · 5. Juni 2026 · 874 Commits · 542 PRs · 399 Issues closed · 170 Contributors</span>
+
+> Desktop-App, Web-Dashboard als Admin-Panel, Quick Setup, `/undo`, Fuzzy Model Picker, Simplified Chinese, NVIDIA/skills Tap, schlankeres Skill-Set.
+
+### ✨ Highlights
+
+- **Hermes Desktop — Echte native App, kein Terminal-Wrapper** — Electron-App für macOS, Linux, Windows mit In-App-Update, Chat-Fenster mit Streaming, Session-Liste mit Archivierung, Drag-&-Drop-Dateien, Zwischenablage-Bilder, Cmd+K Palette, Model Picker in der Statusleiste ([#20059](https://github.com/NousResearch/hermes-agent/pull/20059) u.a.)
+- **Remote-Gateway-Connect** — Desktop-App kann sich per OAuth oder Username/Password mit einem entfernten Hermes-Gateway verbinden; Multi-Profile-Sessions parallel ([#37888](https://github.com/NousResearch/hermes-agent/pull/37888) u.a.)
+- **Web-Dashboard als Admin-Panel** — Channels-Seite (Messaging-Plattformen konfigurieren), MCP-Katalog, Credentials, Webhooks, Memory, Gateway, System-Seite mit Check-before-Update ([#36704](https://github.com/NousResearch/hermes-agent/pull/36704) u.a.)
+- **Simplified Chinese (简体中文)** — Vollständige Desktop-Übersetzung über getypte i18n-Schicht ([#38241](https://github.com/NousResearch/hermes-agent/pull/38241) — @JimLiu)
+- **`/undo [N]`** — Die letzten N User-Turns rückgängig machen, mit Prefill + Soft-Delete (CLI/TUI/Messaging-Plattformen) ([#36229](https://github.com/NousResearch/hermes-agent/pull/36229))
+- **Fuzzy Model Picker** — Überall fuzzy-suchbar (Desktop, Web, TUI, CLI); Multi-Endpoint-Provider gruppiert; stündliche Katalog-Aktualisierung ([#36928](https://github.com/NousResearch/hermes-agent/pull/36928))
+- **Quick Setup via Nous Portal** — Zwei Pfade: Quick Setup (Portal-Login → loslegen) oder Full Setup (detaillierter Wizard); `hermes portal` als Alias ([#35723](https://github.com/NousResearch/hermes-agent/pull/35723))
+- **Schlankeres Default-Skill-Set** — Redundante/tote Skills entfernt (spotify, linear u.a.), schwere/Nischen-Skills zu optional gemacht; `environments:`-Relevance-Gate ([#39028](https://github.com/NousResearch/hermes-agent/pull/39028))
+- **NVIDIA/skills als Trusted Tap** — NVIDIA/Skills als Standard-Tap im Skills Hub ([#34333](https://github.com/NousResearch/hermes-agent/pull/34333))
+- **Neue Modelle** — `deepseek-v4-flash`, `MiniMax-M3` (1M Kontext), `qwen3.7-plus`, `gemini-3.5-flash`
+- **Dashboard Auth** — Pluggable OIDC, Username/Password-Login, Refresh-Token-Rotation
+- **CVE-2026-48710** — Starlette BadHost gepinnt; SSRF-Off-Loop-Hardening; Credential-Stripping ([#35118](https://github.com/NousResearch/hermes-agent/pull/35118))
+- **Discord Voice-Channel Mixer** — Ambient Idle Bed + verbale Acks
+
+---
+
+## v0.15.2 — Patch Release 🔧
+<span style="color: var(--vp-c-text-2); font-size: 0.9em;">v2026.5.29.2 · 29. Mai 2026</span>
+
+- **Bugfix:** Plugin-Manifeste werden jetzt im Wheel und Sdist mitgeliefert ([#827f7f07](https://github.com/NousResearch/hermes-agent/commit/827f7f07))
 
 ---
 
@@ -298,4 +328,4 @@ Was als Nächstes kommt? Die Hermes-Entwicklung ist rasant – neue Releases ers
 - Performance-Optimierungen
 - Neue Plattform-Adapter
 
-> *Stand: Mai 2026 (v0.14.0). Dieses Compendium wird mit jedem neuen Release aktualisiert.*
+> *Stand: Juni 2026 (v0.16.0). Dieses Compendium wird mit jedem neuen Release aktualisiert.*
