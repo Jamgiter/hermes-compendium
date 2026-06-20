@@ -2,7 +2,90 @@
 
 Alle Releases von Hermes Agent seit der ersten öffentlichen Version – chronologisch absteigend.
 
-> **Aktuelle Version:** v0.16.0 (v2026.6.5) — *The Surface Release*
+> **Aktuelle Version:** v0.17.0 (v2026.6.19) — *The Reach Release*
+
+---
+
+## v0.17.0 — The Reach Release 🌊
+<span style="color: var(--vp-c-text-2); font-size: 0.9em;">v2026.6.19 · 19. Juni 2026 · ~1.475 Commits · ~800 PRs · 300+ Issues closed · 245 Contributors</span>
+
+> Hermes reicht weiter — iMessage via Photon, Desktop-App-Reife, Background-Subagents, Image-to-Image, Dashboard-Profil-Builder, Cursor Composer via xAI, Automation Blueprints, Raft-Agent-Netzwerk, Memory-Batch-Operations, Skills Hub-Rehaul.
+
+### ✨ Highlights
+
+- **iMessage via Photon Spectrum** — Neuer Plattform-Plugin, kein Mac-Relay nötig. `hermes photon login` mit Device-Code OAuth, gRPC-native, Markdown, Emoji-Reactions, Outbound-Media. Kostenloser Start, nichts selbst zu hosten ([#32348](https://github.com/NousResearch/hermes-agent/pull/32348), [#42582](https://github.com/NousResearch/hermes-agent/pull/42582), [#44713](https://github.com/NousResearch/hermes-agent/pull/44713) — @teknium1)
+- **Raft Agent Network** — Hermes tritt dem Raft-Netzwerk als Gateway-Channel bei. Raft kann Hermes per Wake-Channel aufweben — Privacy-by-Contract: nur Metadaten, keine Nachrichteninhalte ([#48210](https://github.com/NousResearch/hermes-agent/pull/48210) — @xxchan, @teknium1)
+- **Desktop-App-Reife** — Neubindbare Tastenkürzel, native OS-Notifikationen, Live-Subagent-Watch-Windows, Composer-Modell-Selektor mit Presets, VS-Code-Theme-Unterstützung, RTL/Bidi, resizable Terminal-Pane, per-Thread-Composer-Drafts, Tool-Backend-Installation aus der GUI ([#45866](https://github.com/NousResearch/hermes-agent/pull/45866), [#40660](https://github.com/NousResearch/hermes-agent/pull/40660), [#47060](https://github.com/NousResearch/hermes-agent/pull/47060), [#46959](https://github.com/NousResearch/hermes-agent/pull/46959), [#43292](https://github.com/NousResearch/hermes-agent/pull/43292), [#44596](https://github.com/NousResearch/hermes-agent/pull/44596) — @OutThisLife, @teknium1)
+- **Background/Async Subagents** — `delegate_task(background=true)` startet Subagenten im Hintergrund; du arbeitest weiter, das Ergebnis kommt als neuer Turn ([#40946](https://github.com/NousResearch/hermes-agent/pull/40946), [#46968](https://github.com/NousResearch/hermes-agent/pull/46968) — @teknium1)
+- **Image-to-Image / Editing** — `image_generate` kann bestehende Bilder bearbeiten/transformieren, nicht nur neu generieren. Über alle unterstützten Backends ([#48705](https://github.com/NousResearch/hermes-agent/pull/48705) — @teknium1)
+- **Automation Blueprints** — Parameterisierte Automations-Vorlagen ohne Cron-Syntax. Einmal definieren, überall nutzbar: Dashboard-Formular, Slash-Befehl, Agent-Gespräch ([#41309](https://github.com/NousResearch/hermes-agent/pull/41309) — @teknium1)
+- **Cursor Composer via xAI** — `grok-composer-2.5-fast` im xAI OAuth Model Picker. Dein xAI-Abo + Hermes-Agent-Loop + Composers Coding-Speed ([#47908](https://github.com/NousResearch/hermes-agent/pull/47908) — @teknium1)
+- **Dashboard Profil-Builder** — Komplette Profile aus dem Browser erstellen: Modell, Skills, MCPs — ohne config.yaml-Handarbeit. Multi-Profil-Management auf einer Seite ([#39084](https://github.com/NousResearch/hermes-agent/pull/39084), [#44007](https://github.com/NousResearch/hermes-agent/pull/44007) — @teknium1)
+- **Skills Hub Browser Rehaul** — Connected Hubs, Featured-Sektion, Skill-Vorschau, Security-Scan. Skills-Browsing als echte Erfahrung ([#40384](https://github.com/NousResearch/hermes-agent/pull/40384), [#43398](https://github.com/NousResearch/hermes-agent/pull/43398) — @teknium1)
+- **Memory Batch Operations** — `memory`-Tool mit `operations`-Array: atomares Add/Replace/Remove gegen das Char-Budget in einem Call ([#48507](https://github.com/NousResearch/hermes-agent/pull/48507) — @teknium1)
+- **WhatsApp Business Cloud API** — Offizieller Meta-Adapter, kein Bridge-Prozess ([#44331](https://github.com/NousResearch/hermes-agent/pull/44331), [#43921](https://github.com/NousResearch/hermes-agent/pull/43921) — @jquesnelle, @teknium1)
+- **Telegram Bot API 10.1** — Rich Messages, besseres Formatting, sauberes Long-Message-Handling ([#44829](https://github.com/NousResearch/hermes-agent/pull/44829), [#45584](https://github.com/NousResearch/hermes-agent/pull/45584), [#45953](https://github.com/NousResearch/hermes-agent/pull/45953) — @teknium1)
+- **Dashboard Auth gehärtet** — 401 für Token-Endpoints hinter OAuth, WS-Auth via Dashboard-Token, Warnung bei abgelehntem public_url ([#42578](https://github.com/NousResearch/hermes-agent/pull/42578) — @benbarclay, @teknium1)
+- **Curator-Kostenoptimierung** — Konsolidierung jetzt Opt-in (`curator.consolidate: true`); Routine-Runs kosten 0 Tokens ([#47840](https://github.com/NousResearch/hermes-agent/pull/47840) — @teknium1)
+
+### 🖥️ Hermes Desktop App
+
+- Rebindable Keyboard-Shortcuts-Panel; native OS-Notifications mit per-Type-Toggles; Turn-Completion-Cue + Dismissable-Error-Banner ([#40660](https://github.com/NousResearch/hermes-agent/pull/40660), [#45866](https://github.com/NousResearch/hermes-agent/pull/45866), [#42480](https://github.com/NousResearch/hermes-agent/pull/42480), [#47985](https://github.com/NousResearch/hermes-agent/pull/47985) — @OutThisLife, @teknium1)
+- Live-Subagent-Watch-Windows; Composer-Status-Stack + Editable Prompts; Chat-in-own-Window; New-Session Compact-Window-Hotkey ([#47060](https://github.com/NousResearch/hermes-agent/pull/47060), [#44630](https://github.com/NousResearch/hermes-agent/pull/44630), [#43219](https://github.com/NousResearch/hermes-agent/pull/43219), [#46951](https://github.com/NousResearch/hermes-agent/pull/46951) — @OutThisLife, @teknium1)
+- Composer-Model-Selector + per-Model-Presets; VS-Code-Marketplace-Themes installierbar; Window-Translucency-Slider; Unified-Overlay-Design + BrandMark + Onboarding-Redesign ([#46959](https://github.com/NousResearch/hermes-agent/pull/46959), [#43292](https://github.com/NousResearch/hermes-agent/pull/43292), [#42286](https://github.com/NousResearch/hermes-agent/pull/42286), [#45086](https://github.com/NousResearch/hermes-agent/pull/45086), [#40708](https://github.com/NousResearch/hermes-agent/pull/40708) — @teknium1, @OutThisLife)
+- Resizable VS-Code-Themed Terminal-Pane; Auto-RTL/Bidi Text-Direction; Mac-Style Session-Switcher (^Tab / ^1-9); Worktree-Aware Sidebar-Grouping; Hover-Reveal Collapsed Sidebars ([#42521](https://github.com/NousResearch/hermes-agent/pull/42521), [#44596](https://github.com/NousResearch/hermes-agent/pull/44596), [#43111](https://github.com/NousResearch/hermes-agent/pull/43111), [#45273](https://github.com/NousResearch/hermes-agent/pull/45273), [#41670](https://github.com/NousResearch/hermes-agent/pull/41670), [#41751](https://github.com/NousResearch/hermes-agent/pull/41751) — @OutThisLife)
+- Arrow-Key History + Queue-Editing im Composer; Full-Command-Inline aus Approval-Bar; Follow-Streaming-at-Bottom + Jump-to-Bottom; Cron-Jobs im Sidebar + Dashboard-Scheduler ([#40234](https://github.com/NousResearch/hermes-agent/pull/40234), [#44864](https://github.com/NousResearch/hermes-agent/pull/44864), [#45263](https://github.com/NousResearch/hermes-agent/pull/45263), [#40684](https://github.com/NousResearch/hermes-agent/pull/40684) — @OutThisLife, @teknium1)
+- Desktop Pets — Pop-out Overlay + Notifications ([#47938](https://github.com/NousResearch/hermes-agent/pull/47938) — @teknium1)
+- Full Tool-Backend Config in Settings; Tool-Backend GUI-Install; Chat GUI Uninstall; YOLO-Toggle per Shift+Click; /browser connect on local gateway ([#41232](https://github.com/NousResearch/hermes-agent/pull/41232), [#40559](https://github.com/NousResearch/hermes-agent/pull/40559), [#40355](https://github.com/NousResearch/hermes-agent/pull/40355), [#41666](https://github.com/NousResearch/hermes-agent/pull/41666), [#47245](https://github.com/NousResearch/hermes-agent/pull/47245) — @teknium1, @OutThisLife)
+- Japanisch + Traditionell Chinesisch Sprachumschaltung ([#40114](https://github.com/NousResearch/hermes-agent/pull/40114))
+- "Restart Gateway" (umbenannt aus "Restart Messaging") im Statusbar + Toasts; Logs selectable/copyable ([#49094](https://github.com/NousResearch/hermes-agent/pull/49094) — @OutThisLife)
+- Remote Media Relay — Images/PDFs anhängen und Agent-Bilder übers Netzwerk darstellen ([#41336](https://github.com/NousResearch/hermes-agent/pull/41336), [#42634](https://github.com/NousResearch/hermes-agent/pull/42634) — @teknium1)
+
+### 📊 Web Dashboard
+
+- Full-Featured Profil-Builder (Modell + Skills + MCPs); Multi-Profil-Management + Global Profile Switcher; Session Switcher Panel ([#39084](https://github.com/NousResearch/hermes-agent/pull/39084), [#44007](https://github.com/NousResearch/hermes-agent/pull/44007), [#43808](https://github.com/NousResearch/hermes-agent/pull/43808), [#49077](https://github.com/NousResearch/hermes-agent/pull/49077) — @teknium1)
+- Skills Hub Browser Rehaul — Connected Hubs, Featured, Preview + Security Scan; SKILL.md Editor; MCP Catalog Detail; Tool-Backend Config in GUI ([#40384](https://github.com/NousResearch/hermes-agent/pull/40384), [#44231](https://github.com/NousResearch/hermes-agent/pull/44231), [#48520](https://github.com/NousResearch/hermes-agent/pull/48520), [#40418](https://github.com/NousResearch/hermes-agent/pull/40418) — @teknium1)
+- Webhooks aus Webhooks-Seite aktivierbar; File Browser; UI-Font-Wechsel; Reasoning-Effort Picker ([#44021](https://github.com/NousResearch/hermes-agent/pull/44021), [#43512](https://github.com/NousResearch/hermes-agent/pull/43512), [#41145](https://github.com/NousResearch/hermes-agent/pull/41145), [#49141](https://github.com/NousResearch/hermes-agent/pull/49141) — @teknium1)
+
+### 🏗️ Core Agent & Architecture
+
+- **God-File Refactor Welle** — `cli.py` 3297→954 Zeilen (28 Subcommand-Parser extrahiert); `gateway/run.py` 19157→15870 Zeilen (42 Slash-Command-Handler extrahiert); `run_agent.py` Turn-Loop in TurnContext ausgelagert (@teknium1)
+- Memory Batch Operations; search_files lossless densification; send_message Tool entfernt ([#48507](https://github.com/NousResearch/hermes-agent/pull/48507), [#47866](https://github.com/NousResearch/hermes-agent/pull/47866), [#47856](https://github.com/NousResearch/hermes-agent/pull/47856) — @teknium1)
+- Context-File Handling: Konfigurierbare Truncation + Warnings; Compression temporal anchoring; Adaptive Middleware ([#47251](https://github.com/NousResearch/hermes-agent/pull/47251), [#41102](https://github.com/NousResearch/hermes-agent/pull/41102), [#29724](https://github.com/NousResearch/hermes-agent/pull/29724) — @teknium1)
+- **Neue Modelle** — z-ai/glm-5.2 (1M), anthropic/claude-fable-5, laguna-m.1, nemotron-3-ultra, xAI Composer 2.5 ([#47391](https://github.com/NousResearch/hermes-agent/pull/47391), [#45695](https://github.com/NousResearch/hermes-agent/pull/45695), [#47908](https://github.com/NousResearch/hermes-agent/pull/47908) — @teknium1)
+- Model Picker: Refresh-Models Control; Persist Nous Recommended-Models; MiniMax-M3 1M Context ([#48691](https://github.com/NousResearch/hermes-agent/pull/48691), [#42628](https://github.com/NousResearch/hermes-agent/pull/42628) — @teknium1)
+- Kanban: Config-gated auto-subscribe; Machine-global singleton lock; Pin assigned profile toolsets ([#48635](https://github.com/NousResearch/hermes-agent/pull/48635), [#49068](https://github.com/NousResearch/hermes-agent/pull/49068) — @teknium1)
+
+### 📱 Messaging Platforms
+
+- **iMessage via Photon Spectrum** — gRPC-native, Markdown, Emoji-Reactions, Outbound-Media ([#32348](https://github.com/NousResearch/hermes-agent/pull/32348), [#42582](https://github.com/NousResearch/hermes-agent/pull/42582), [#44713](https://github.com/NousResearch/hermes-agent/pull/44713) — @teknium1)
+- **WhatsApp Business Cloud API** — Offizieller Meta-Adapter ([#44331](https://github.com/NousResearch/hermes-agent/pull/44331), [#43921](https://github.com/NousResearch/hermes-agent/pull/43921) — @jquesnelle, @teknium1)
+- **SimpleX** — Groups, native Attachments, Text Batching, Auto-Accept ([#42584](https://github.com/NousResearch/hermes-agent/pull/42584) — @teknium1)
+- **Raft** — Bundled Platform Plugin mit Activity Hooks ([#48210](https://github.com/NousResearch/hermes-agent/pull/48210) — @teknium1)
+- Telegram: Bot API 10.1 Rich Messages; Online/Offline Bot Status Indicator ([#44829](https://github.com/NousResearch/hermes-agent/pull/44829), [#49134](https://github.com/NousResearch/hermes-agent/pull/49134) — @teknium1)
+- Discord: role_authorized propagation; Recover from runtime task exits ([#43327](https://github.com/NousResearch/hermes-agent/pull/43327), [#44383](https://github.com/NousResearch/hermes-agent/pull/44383) — @teknium1)
+- Slack: Scope channel messages when reply_in_thread=false; Thread approval UX ([#41703](https://github.com/NousResearch/hermes-agent/pull/41703), [#43444](https://github.com/NousResearch/hermes-agent/pull/43444) — @teknium1)
+
+### 🔧 Tool System, Skills & MCP
+
+- Image-to-Image Editing ([#48705](https://github.com/NousResearch/hermes-agent/pull/48705) — @teknium1)
+- MCP: Unreal Engine 5.8 MCP Server; Elicitation Handler für Mid-Tool-Call Confirmations; Late-Connecting MCP Tools; Keepalive Ping ([#48397](https://github.com/NousResearch/hermes-agent/pull/48397), [#49203](https://github.com/NousResearch/hermes-agent/pull/49203), [#49208](https://github.com/NousResearch/hermes-agent/pull/49208) — @teknium1)
+- Skills: simplify-code skill (3-Agent-Code-Review); Find & diff user-modified skills; Optional payments skills ([#41691](https://github.com/NousResearch/hermes-agent/pull/41691), [#48286](https://github.com/NousResearch/hermes-agent/pull/48286), [#31343](https://github.com/NousResearch/hermes-agent/pull/31343) — @teknium1)
+- Curator-Consolidation opt-in; Plugins: subdirectory install, GitHub-URL paste ([#47840](https://github.com/NousResearch/hermes-agent/pull/47840), [#42963](https://github.com/NousResearch/hermes-agent/pull/42963) — @teknium1)
+
+### 🔒 Security & Reliability
+
+- Fail closed on own-policy gateway adapters; Fail closed für Approval-Button Auth ([#45634](https://github.com/NousResearch/hermes-agent/pull/45634), [#41226](https://github.com/NousResearch/hermes-agent/pull/41226) — @teknium1)
+- Shell-escape denylist bypass geschlossen; CUA-Driver env sanitization; Cron env sanitization ([#40591](https://github.com/NousResearch/hermes-agent/pull/40591), [#48423](https://github.com/NousResearch/hermes-agent/pull/48423), [#49207](https://github.com/NousResearch/hermes-agent/pull/49207) — @kshitijk4poor)
+- urllib3 + PyJWT CVEs cleared; Langfuse base64 data URI redaction ([#40179](https://github.com/NousResearch/hermes-agent/pull/40179), [#43322](https://github.com/NousResearch/hermes-agent/pull/43322) — @teknium1)
+
+### 🌐 Fleet, Relay & Automation
+
+- **Managed Scope** — Administrator-pinned, user-immutable config & secrets aus `/etc/hermes` ([#49098](https://github.com/NousResearch/hermes-agent/pull/49098) — @teknium1)
+- **Gateway Multiplex** — Alle Profile über einen Gateway-Prozess (Opt-in) ([#48273](https://github.com/NousResearch/hermes-agent/pull/48273) — @benbarclay)
+- **Pluggable CronScheduler + Chronos** — Scale-to-Zero Managed-Cron-Provider ([#48275](https://github.com/NousResearch/hermes-agent/pull/48275) — @benbarclay)
+- **Automation Blueprints** — Parameterisierte Templates ([#41309](https://github.com/NousResearch/hermes-agent/pull/41309) — @teknium1)
+- **Gateway-Gateway Relay** (Phasen 0-3) — Relay Adapter + Signed-HTTP + WS-Inbound + Self-Provision ([#48078](https://github.com/NousResearch/hermes-agent/pull/48078), [#48147](https://github.com/NousResearch/hermes-agent/pull/48147), [#48294](https://github.com/NousResearch/hermes-agent/pull/48294), [#48242](https://github.com/NousResearch/hermes-agent/pull/48242) — @teknium1)
 
 ---
 
@@ -317,15 +400,15 @@ Alle Releases von Hermes Agent seit der ersten öffentlichen Version – chronol
 - **Filesystem Checkpoints & Rollback** – Auto-Snapshots + `/rollback`
 - **3.289 Tests** – Von null auf eine umfassende Test-Suite
 
----
+> *Stand: Juni 2026 (v0.17.0). Dieses Compendium wird mit jedem neuen Release aktualisiert.*
 
-## 🔮 Ausblick (v0.13+)
+## 🔮 Ausblick (v0.18+)
 
-Was als Nächstes kommt? Die Hermes-Entwicklung ist rasant – neue Releases erscheinen etwa alle 5–7 Tage. Aktuelle Entwicklungs-Schwerpunkte:
+Was als Nächstes kommt? Hermes erscheint etwa alle 5–7 Tage mit neuen Major-Releases. Aktuelle Entwicklungs-Schwerpunkte:
 
-- Weiterer Ausbau des Curator-Systems
-- Plugins & MCP-Integration vertiefen
-- Performance-Optimierungen
-- Neue Plattform-Adapter
+- **Hermes Gateway Multiplex** — Single-Prozess-Multi-Profil weiter ausbauen
+- **Fleet Relay & Managed Deployments** — Scale-to-Zero-Chronos und Gateway-to-Gateway-Relay in Produktion
+- **Automation Blueprints** — Parameterisierte Cron-Templates auf allen Oberflächen
+- **Desktop-App** — Weiterentwicklung der nativen App als täglicher Daily Driver
+- **Neue Plattform-Adapter & Provider** — Laufend neue Kanäle und Inference-Backends
 
-> *Stand: Juni 2026 (v0.16.0). Dieses Compendium wird mit jedem neuen Release aktualisiert.*
