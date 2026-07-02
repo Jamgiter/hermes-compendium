@@ -2,7 +2,76 @@
 
 Alle Releases von Hermes Agent seit der ersten öffentlichen Version – chronologisch absteigend.
 
-> **Aktuelle Version:** v0.17.0 (v2026.6.19) — *The Reach Release*
+> **Aktuelle Version:** v0.18.0 (v2026.7.1) — *The Pet & Relay Release*
+
+---
+
+## v0.18.0 — The Pet & Relay Release 🐾
+<span style="color: var(--vp-c-text-2); font-size: 0.9em;">v2026.7.1 · 1. Juli 2026 · 1.892 Commits</span>
+
+> Petdex-Maskottchen, Relay-Architektur, Google Vertex AI, Computer-Use für alle, Cron-Threads, `/learn` für Skills, In-Place-Kompression, `hermes serve` Backend.
+
+### 🐾 Pet-System
+- **Petdex** — Animierte TUI-Maskottchen (Pokédex-Stil) mit Schlüpfen, Füttern und Galerie; OpenRouter + Nous Portal Image-Backend
+- **`display.pet`-Config** — Pet-Auswahl pro Profil, TUI-Pet-Bereich, Gateway-RPCs
+
+### 🔄 Relay-Architektur
+- **Go-Dormant Transport-Modus** — Scale-to-Zero für inaktive Agenten
+- **Multi-Platform-Per-Agent** — Ein Relay-Agent pro Plattform-Identität
+- **Wake-Primitive** — Gateway-seitiges Aufwecken schlafender Relay-Instanzen
+- **Passthrough Forward** — WS-basierte Forwarding-Pipeline
+
+### 🖥️ Desktop & CLI
+- **`hermes serve`** — Headless Backend; Desktop startet nicht mehr `dashboard`
+- **`/prompt`** — Prompt im `$EDITOR` verfassen (TUI-Parität)
+- **`/reasoning full`** — Vollständiges Thinking sichtbar (nicht nur 10 Zeilen)
+- **`/timestamps`** — Timestamps in `/history`-Ausgabe
+- **Background Subagents in Statusbar** — CLI + TUI zeigen laufende Subagenten
+- **Ctrl+G** — Editierten Draft speichern (TUI-Parität)
+- **Blank Slate Setup-Modus** — Minimaler Agent, alles Opt-In
+
+### 🛡️ Sicherheit & Agent
+- **Verify-on-Stop** — Automatische Verifikation vor Edit-Abschluss (default OFF)
+- **Pre-Verify Hook** — Verifikation vor Tool-Ausführung
+- **Coding Instructions** — Konfigurierbare Coding-Anweisungen im Agent-Prompt
+- **Security Posture Audit** — Startup-Warnung bei Sicherheitslücken
+
+### 🤖 Neue Provider
+- **Google Vertex AI (Gemini)** — OAuth2-basierter Vertex-Provider
+- **Antigravity OAuth** — Native Antigravity-Unterstützung
+- **Ollama Cloud** — `reasoning_effort`-Support
+
+### 💻 Computer-Use
+- **Cross-Platform cua-driver** — macOS/Windows/Linux
+- **Desktop-Capture** — Ganzer Bildschirm als Ziel
+- **macOS Permission Preflight** — Berechtigungsprüfung im Desktop
+- **Telemetry Opt-In** — Telemetrie standardmäßig deaktiviert
+
+### ⏰ Cron-Verbesserungen
+- **Thread-preferred Delivery** — Cron-Benachrichtigungen in Threads + DM-Fallback
+- **Continuable Cron Jobs** — Session fortsetzbar aus Cron-Delivery
+- **Gateway-Warnung** — Hinweis wenn Gateway nicht läuft bei Cron-Erstellung
+
+### 🧠 Skills & Lernen
+- **`/learn`** — Skill aus Beschreibung destillieren (Reusable Skill Generator)
+- **`cloudflare-temporary-deploy`** — Neuer optionaler Skill
+- **Projekt-Workspace-Tools** — Strukturierte Projekt-Fakten für den Agenten
+
+### 📱 Plattformen & Tools
+- **WhatsApp Media Delivery** — Native Medien via Baileys-Bridge
+- **WhatsApp Owner-Tagging** — Eigene Nachrichten als `[owner reply]` markiert
+- **Slack Block Kit** — Native Tabellen-Rendering als Block Kit
+- **Teams Attachments** — send_video/send_voice/send_document
+- **`web_extract`** — Truncate-and-Store statt LLM-Summarisierung (schneller)
+- **Browser Auto-Install** — Chromium bei fehlendem lokalen Binary automatisch installieren
+- **FAL Video Gen** — Routed durch Managed Nous Gateway
+
+### 🔧 Infrastruktur
+- **In-Place Compression** — Kompression behält eine Session-ID (default on)
+- **API Server** — Configurable concurrent-run cap (DoS-Schutz)
+- **Dashboard** — Auto-SSO-Redirect, Gateway-Busy-Status, Chronos-Metrik-Exposition
+- **Plugins** — `tool_override`-Grant mit Consent-Prompt
+- **Process SIGTERM→SIGKILL** — Grace-Frist vor hartem Kill
 
 ---
 
