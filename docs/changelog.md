@@ -2,7 +2,142 @@
 
 Alle Releases von Hermes Agent seit der ersten öffentlichen Version – chronologisch absteigend.
 
-> **Aktuelle Version:** v0.18.0 (v2026.7.1) — *The Pet & Relay Release*
+> **Aktuelle Version:** v0.20.0 (v2026.8.3) — *The Herald Release*
+
+---
+
+## v0.20.0 — The Herald Release 📣
+<span style="color: var(--vp-c-text-2); font-size: 0.9em;">v2026.8.3 · 3. August 2026 · ~3.650 Commits · ~1.400 PRs · ~1.200 Issues closed · 647 Contributors</span>
+
+> Hermes wird zum Herold der Götter: Er **spricht** (konversationelle Sprachsteuerung mit Streaming-TTS, Barge-in und Wake-Words), **trägt Nachrichten zu anderen Agenten** (A2A v1.0), **kündigt Ereignisse an deine Systeme an** (signierte Outbound Webhooks) und **zitiert seine Quellen** (Grounded Research mit verifizierbaren Belegen).
+
+### 🎙️ Konversations-Sprache & Voice
+- **Streaming-TTS mit Barge-in** — Hermes spricht Satz für Satz, während die Antwort streamt; du kannst mitten im Satz unterbrechen (es stoppt, hört zu, die Sätze werden dem Modell mitgeteilt)
+- **Wake-Words on-device** — Eigene Wachphrase („hey Hermes" oder frei wählbar), Erkennung läuft lokal, kein Audio verlässt den Rechner; „stop" beendet Voice-Chat überall
+- **Voice auf allen Plattformen** — WhatsApp, Feishu, DingTalk, LINE, QQ, Photon, Weixin: Sprachnachrichten werden transkribiert und beantwortet
+- **STT voll konfigurierbar** — Eigene `hermes tools`-Kategorie, GUI-Toggles, Dashboard-Dropdowns, einheitliche Sprachauflösung, OpenAI gpt-transcribe
+- **Unified Spoken-Text-Preprocessor** — Markdown, Code und URLs werden für alle TTS-Provider aus der Sprache entfernt
+
+### 🔗 A2A v1.0 — Agent spricht mit Agent
+- **Agent-to-Agent-Protokoll als Plugin** — Hermes kann andere A2A-kompatible Agenten entdecken, mit ihnen sprechen und sich von ihnen steuern lassen
+- Schließt **Issue #514** — eines der ältesten offenen Feature-Requests im Repo
+- Standard-Wire-Protokoll für Multi-Agent-Systeme mit heterogenen Stacks
+
+### 🔔 Outbound Webhooks
+- **Signierte Lifecycle-Events** (Session-Aktivität, Turn-Completions, Tool-Events) an beliebige HTTP-Endpunkte
+- **HMAC-Signaturen** — Empfänger können die Authentizität verifizieren
+- Anbindung an CI, Home-Automation, Dashboards ohne Polling
+
+### 📚 Grounded Citations
+- **Neuer Skill `grounded-citations`** — Research, bei dem jede Behauptung durch eine verifizierbare Quelle belegt ist
+- **Fact-Checking-Modus** — gleiche Mechanik auf Dokumente oder Claims anwendbar: was hält stand, was nicht, was konnte nicht verifiziert werden
+
+### 🖥️ Desktop wird Plattform
+- **Artifacts** — versionierte Karten mit Sandbox-Live-Preview im Seitenpanel
+- **Plugin-SDK** — Kanban als erstes Desktop-Plugin, `ctx.download`, Widget-App-SDK
+- **Quick-Entry-Fenster** — Global-Hotkey erfasst Gedanken in jede Session
+- **Mehrere GUI-Fenster**, Floating-Panes, SSH-Remote-Backend-Modus
+- **60fps-Welle 2** — Streaming-Kosten unabhängig von Transkriptlänge, Idle-CPU nahe null
+
+### 💻 CLI-Power-Welle
+- **`!command`** — Shell-Befehl ohne Modell-Turn
+- **`/init`** — generiert/aktualisiert `AGENTS.md` aus dem Projekt
+- **`/diff`** — staged/all/session-Änderungen, `/context` — Context-Breakdown, `/focus` — Reduced-Output-View
+- **`hermes import-agent`** — migriert Claude Code/Codex CLI-Setups in einem Befehl
+- **Mid-Turn-Redirects** — Korrektur eingeben, während der Agent arbeitet; Arbeit in Flug bleibt erhalten
+- **Ctrl+S** — halbgeschriebenen Prompt in Panel retten
+
+### 🛠️ Tools, die sich selbst heilen
+- **Terminal**: Truncation spült vollen Output in Datei, cwd-Echo, Failure-Hints
+- **Patch**: erkennt bereits angewendete Edits, diagnostiziert Whitespace-Mismatches
+- **Search**: Zero-Match-Probes mit Multi-Path-Recovery, read_file-Limit 500 → 2000 Zeilen
+- **write_file verifiziert auf Platte**, Iterationslimit 90 → 500
+
+### 🧠 Kompression-Overhaul
+- Proaktives Tool-Result-Pruning, Per-Turn-Micro-Compaction, garantierter N-User-Message-Tail
+- **Ghost-Skill-Schutz** — geprunte Skills können Sessions nicht mehr heimsuchen
+- Thresholds pro Modell + absolute Token konfigurierbar
+
+### 🌐 Neue Plattformen & Provider
+- **Buzz** (Block/Nostr-Messenger, WebSocket + NIP-42-Auth) als gebündelte Gateway-Plattform
+- **Vercel AI Gateway** Provider + Vercel Sandbox Terminal-Backend
+- Gemini 3.1 Pro / 3.6 Flash, claude-opus-5, deepseek-v4-flash-0731
+- **Node 26 Pflicht** — brew + pip/PyPI-Wheels eingestellt (Shell-Installer/Docker/Nix)
+
+---
+
+## v0.19.1 — Patch Release 🔧
+<span style="color: var(--vp-c-text-2); font-size: 0.9em;">v2026.7.30 · 30. Juli 2026 · ~2.789 Commits seit v0.19.0</span>
+
+> Infrastruktur-Patch-Tag: rollt ~1.000+ PRs seit v0.19.0 zusammen (Bugfix- und Salvage-Wellen über Gateway, Voice-Subsystem, Desktop-App und Installer, plus Buzz/Nostr-Kanal, FLUX3-Video, Telegram-Media-Zuverlässigkeit). Vollständig kuratierte Notes erscheinen mit v0.20.0.
+
+---
+
+## v0.19.0 — The Quicksilver Release ⚡
+<span style="color: var(--vp-c-text-2); font-size: 0.9em;">v2026.7.20 · 20. Juli 2026 · ~2.245 Commits · ~1.065 PRs · ~3.300 Issues closed · 450+ Contributors</span>
+
+> Hermes ist der Götterbote — und in diesem Fenster macht er ihm alle Ehre: Die Zeit bis zum ersten Token fiel auf allen Plattformen um **~80 %**, Reasoning streamt live, die Desktop-App bekam einen ~20-PR-Speed-Overhaul. Dazu: Nous-Abo direkt im Terminal, Bitwarden/1Password als Secret-Quellen, Smart Approvals als Default, Live-Subagent-Transkripte und ein Delivery-Ledger, das Antworten vor Gateway-Crashes schützt.
+
+### ⚡ Performance — die Geschwindigkeits-Säule
+- **~80 % TTFT-Cut auf allen Plattformen** — Cold-Start „Initializing agent..." von ~4,3s auf ~0,9s (CLI, Gateway, TUI, Desktop, Cron)
+- **Reasoning streamt live** (Standard), Antwort-Box rendert pro Token statt pro Zeile
+- **Desktop-Speed-Welle**: 14× weniger Splitter-CPU, virtualisierte Diffs, schnelles Session-Switching
+- TUI rendert Markdown inkrementell; Skill-Discovery gecacht
+
+### 💳 Terminal-Billing
+- **`/subscription`** — Plan + Restguthaben sehen, Upgrade-Preisvorschau, Downgrade-Zeitpunkt, Undo
+- **`/topup`** — Aufladen ohne Browser; Desktop-Billing-Tab
+
+### 🛡️ Smart Approvals (Default)
+- **LLM-Reviewer** bewertet markierte Befehle unabhängig statt jeden zu fragen
+- **User-Defined Deny Rules** — blockieren auch unter YOLO
+- **`/deny <reason>`** — dem Agenten mitteilen, *warum* abgelehnt wurde
+
+### 🔐 Secrets & Passwort-Manager
+- **Pluggable `SecretSource`-Interface** — API-Keys müssen nicht mehr im Klartext-`.env` liegen
+- **Bitwarden & 1Password** (`op://`-Referenzen), mehrere Vaults parallel, deterministische Priorität, Konflikt-Warnungen
+
+### 🤖 Delegation & Zuverlässigkeit
+- **Live-Subagent-Transkripte** — `tail -f` auf jede Tool-Call/Result-Zeile
+- **Durable Background-Delegation** — Ergebnisse überleben Prozess-Neustarts
+- **Delivery-Obligation-Ledger** — fertige Antworten werden in state.db gesichert und nach Gateway-Crash **redelivered**
+
+### 🌐 Gateway & Profile
+- **Profile-basiertes Message-Routing** — ein Gateway, eine Bot-Token, viele Profile (Guilds/Channels/Threads → verschiedene Profile)
+- **Multiplex-Hardening** — ein falsch konfiguriertes Profil kann nicht mehr das ganze Gateway lahmlegen
+
+### 🤖 Neue Provider & Modelle
+- **Fireworks AI** (Platz #2 im Picker, Kostenschätzung), **DeepInfra**, **Upstage Solar**
+- **GPT-5.6** (Sol/Terra/Luna + Pro, end-to-end), **grok-4.5 (GA)**, **kimi-k3**, **Claude Sonnet 5**, tencent/hy3
+- **LM Studio JIT-Modell-Loading** für lokale Setups
+- **`enabled: false`** pro Provider — ungenutzte Provider aus Picker/Resolution ausblenden
+
+### 🧠 Reasoning & MoA
+- **Neue Tiers `max` + `ultra`** überall wählbar
+- **Per-Model-Reasoning-Overrides** in Config, Per-Slot-Effort in MoA-Presets
+- MoA: `reference_max_tokens`-Cap, Per-Preset-Fanout-Kadenz
+
+### 📤 Sessions-Export
+- **Markdown, Quarto, HTML, Prompt-only, Hugging-Face-Trace**-Formate
+- `--redact` Secret-Scrubbing, Filter (Alter, Workspace, Plattform), Compacted-Session-Lineage
+
+### 🔒 Security-Hardening
+- Vertex-Credentials aus Subprocess-Env gescoped, Media/Vision-Lesepfade durch gemeinsamen Credential-Guard
+- Webhook-Body-Size-Caps, Bot-Token-Redaktion, 6 P1-Hardening-PRs, CI-Härtung
+
+---
+
+## v0.18.2 — Patch Release 🔧
+<span style="color: var(--vp-c-text-2); font-size: 0.9em;">v2026.7.7.2 · 7. Juli 2026</span>
+
+> Same-day-Patch auf v0.18.1: **WhatsApp-Baileys-Dependency-Fix** — die Bridge installiert jetzt aus dem veröffentlichten npm-Release (7.0.0-rc13) statt aus einem gepinnten Git-Commit, wodurch Installationen und Docker-Builds zuverlässig werden.
+
+---
+
+## v0.18.1 — Patch Release 🔧
+<span style="color: var(--vp-c-text-2); font-size: 0.9em;">v2026.7.7 · 7. Juli 2026 · ~667 Commits</span>
+
+> Infrastruktur-Patch-Tag: rollt die ~660 PRs seit v0.18.0 zusammen (Bugfixes, Härtung, laufende Feature-Arbeit — Installer-Self-Healing auf Windows, Dashboard/Gateway-Fixes, WhatsApp-Dashboard-Pairing, MCP/Provider-Fixes). Vollständig kuratierte Notes erscheinen mit v0.19.0.
 
 ---
 
@@ -469,15 +604,16 @@ Alle Releases von Hermes Agent seit der ersten öffentlichen Version – chronol
 - **Filesystem Checkpoints & Rollback** – Auto-Snapshots + `/rollback`
 - **3.289 Tests** – Von null auf eine umfassende Test-Suite
 
-> *Stand: Juni 2026 (v0.17.0). Dieses Compendium wird mit jedem neuen Release aktualisiert.*
+> *Stand: August 2026 (v0.20.0). Dieses Compendium wird mit jedem neuen Release aktualisiert.*
 
-## 🔮 Ausblick (v0.18+)
+## 🔮 Ausblick (v0.20+)
 
-Was als Nächstes kommt? Hermes erscheint etwa alle 5–7 Tage mit neuen Major-Releases. Aktuelle Entwicklungs-Schwerpunkte:
+Was kommt als Nächstes? Hermes erscheint etwa alle 5–7 Tage mit neuen Major-Releases. Aktuelle Entwicklungs-Schwerpunkte:
 
-- **Hermes Gateway Multiplex** — Single-Prozess-Multi-Profil weiter ausbauen
+- **Voice weiter ausbauen** — noch mehr Plattformen, bessere Wake-Word-Erkennung, Sprachprofile
+- **A2A-Ökosystem** — weitere Agenten-Stacks an den Agent-to-Agent-Standard anbinden
 - **Fleet Relay & Managed Deployments** — Scale-to-Zero-Chronos und Gateway-to-Gateway-Relay in Produktion
 - **Automation Blueprints** — Parameterisierte Cron-Templates auf allen Oberflächen
-- **Desktop-App** — Weiterentwicklung der nativen App als täglicher Daily Driver
+- **Desktop-App** — Plugin-Ökosystem weiter öffnen (Artifacts, Widgets, Quick-Entry)
 - **Neue Plattform-Adapter & Provider** — Laufend neue Kanäle und Inference-Backends
 
